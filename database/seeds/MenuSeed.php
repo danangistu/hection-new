@@ -89,6 +89,14 @@ class MenuSeed extends Seeder
           );
           \webarq::addMenu([
             'parent_id'     => 'cms',
+            'title'         => 'Testimonial',
+            'controller'    => 'CMS\TestimonialController',
+            'slug'          => 'testimonial',
+            'order'         => '10'
+          ],['index','create','update','view','delete']
+          );
+          \webarq::addMenu([
+            'parent_id'     => 'cms',
             'title'         => 'Sponsor',
             'controller'    => 'CMS\SponsorController',
             'slug'          => 'sponsor',
