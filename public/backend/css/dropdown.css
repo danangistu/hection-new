@@ -1,0 +1,25 @@
+nav{
+    position: relative;width: auto;display: block;height: 40px; background:#DDD;
+    border-top:1px solid #FFF;padding: 0 0 0 30px;border-bottom: 1px solid #999;
+}
+nav ul li{float: left;position: relative;height: 40px;}
+nav ul li a{
+    font-size:14px;text-transform: uppercase;color:#666;padding: 0px 10px;margin-right: 30px;
+    position: relative;line-height: 39px;display: inline-block;height: 40px;font-weight: bold;
+}
+nav ul li a.active,
+nav ul li a:hover{text-decoration: none;color:#00406f;}
+nav ul li a:after{content:"";display: block;width: 1px;height: 18px;background: #CCC;
+    position: absolute;right: -15px;top:0;bottom: 0;margin:auto;
+}
+nav ul li ul{position: absolute;width: 200px;background: #7d7d7d;z-index: 9999;padding: 10px 0;
+    top:39px;border-radius: 3px;-webkit-border-radius:3px;-moz-border-radius:3px;display: none;
+}
+nav ul li ul li ul{left: 100%;top:0;}
+nav ul li ul li{display: block;width: all;float: none;padding:5px 15px;position: relative;}
+nav ul li ul li a{display: block;width: auto;font-weight: normal;color:#FFF;width: auto;text-transform: capitalize;
+    margin-right: 0;height: auto;line-height:30px;
+}
+nav ul li ul li a:after{display: none;}
+nav ul li ul li a:hover{color: #b1deff;}
+nav ul li ul li ul{background: #8d8d8d;left: 100%;}
