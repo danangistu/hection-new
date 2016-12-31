@@ -4,7 +4,7 @@ namespace App\Http\Requests\Backend\CMS;
 
 use App\Http\Requests\Request;
 
-class SponsorRequest extends Request
+class GalleryRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,8 @@ class SponsorRequest extends Request
     {
       $requiredImage = webarq()->getAction()->slug == 'create' ? 'required' : '';
       return [
-        'name'=>'required|max:200',
-        'link'=>'required|max:200',
+        'title'=>'required|max:200',
+        'description'=>'required',
         'order'=>'required',
         'image'=>$requiredImage,
       ];
