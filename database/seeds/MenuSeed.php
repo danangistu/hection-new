@@ -76,7 +76,15 @@ class MenuSeed extends Seeder
             'title'         => 'Prize',
             'controller'    => 'CMS\PrizeController',
             'slug'          => 'prize',
-            'order'         => '7'
+            'order'         => '8'
+          ],['index']
+          );
+          \webarq::addMenu([
+            'parent_id'     => 'cms',
+            'title'         => 'Venue',
+            'controller'    => 'CMS\VenueController',
+            'slug'          => 'venue',
+            'order'         => '9'
           ],['index']
           );
           \webarq::addMenu([
