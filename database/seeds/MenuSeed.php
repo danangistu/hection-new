@@ -55,5 +55,13 @@ class MenuSeed extends Seeder
             'order'         => '5'
           ],['index','create','update','view','delete']
           );
+          \webarq::addMenu([
+            'parent_id'     => 'cms',
+            'title'         => 'Sponsor',
+            'controller'    => 'CMS\SponsorController',
+            'slug'          => 'sponsor',
+            'order'         => '11'
+          ],['index','create','update','delete']
+          );
     }
 }
