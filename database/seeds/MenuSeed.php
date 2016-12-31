@@ -29,6 +29,7 @@ class MenuSeed extends Seeder
 
     public function run()
     {
+      //Content Management
       \webarq::addMenu([
         'parent_id'     => null,
         'title'         => 'Management Contents',
@@ -43,6 +44,14 @@ class MenuSeed extends Seeder
             'slug'          => 'slider',
             'order'         => '1'
           ],['index','create','update','view','delete']
+          );
+          \webarq::addMenu([
+            'parent_id'     => 'cms',
+            'title'         => 'About',
+            'controller'    => 'CMS\AboutController',
+            'slug'          => 'about',
+            'order'         => '2'
+          ],['index']
           );
     }
 }
