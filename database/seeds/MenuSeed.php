@@ -5,28 +5,6 @@ use Illuminate\Database\Seeder;
 
 class MenuSeed extends Seeder
 {
-    /* example add menu
-        \webarq::addMenu([
-                'parent_id'     => null,
-                'title'         => 'Management product',
-                'controller'    => '#',
-                'slug'          => 'product',
-                'order'         => 1,
-            ],[]);
-
-                \webarq::addMenu([
-                    'parent_id'     => 'product',
-                    'title'         => 'Category',
-                    'controller'    => 'CategoryController',
-                    'slug'          => 'category',
-                    'order'         => '1'
-                ],['index','create','update','delete']
-            );
-
-    */
-
-
-
     public function run()
     {
       //Content Management
@@ -52,6 +30,14 @@ class MenuSeed extends Seeder
             'slug'          => 'about',
             'order'         => '2'
           ],['index']
+          );
+          \webarq::addMenu([
+            'parent_id'     => 'cms',
+            'title'         => 'Contest',
+            'controller'    => 'CMS\ContestController',
+            'slug'          => 'contest',
+            'order'         => '3'
+          ],['index','create','update','view','delete']
           );
     }
 }
