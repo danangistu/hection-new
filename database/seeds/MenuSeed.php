@@ -73,6 +73,14 @@ class MenuSeed extends Seeder
           );
           \webarq::addMenu([
             'parent_id'     => 'cms',
+            'title'         => 'Prize',
+            'controller'    => 'CMS\PrizeController',
+            'slug'          => 'prize',
+            'order'         => '7'
+          ],['index']
+          );
+          \webarq::addMenu([
+            'parent_id'     => 'cms',
             'title'         => 'Sponsor',
             'controller'    => 'CMS\SponsorController',
             'slug'          => 'sponsor',
