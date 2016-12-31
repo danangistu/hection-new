@@ -17,7 +17,7 @@ class WebarqController extends Controller
     public function handleUpload($request,$model,$fieldName,$resize=[])
     {
        $image = $request->file($fieldName);
-       
+
         if(!empty($image))
         {
              if(!empty($model->$fieldName))
@@ -25,7 +25,7 @@ class WebarqController extends Controller
                     @unlink(public_path('contents/'.$model->$fieldName));
                 }
 
-            $imageName = randomImage().'.'.$image->getClientOriginalExtension();
+            $imageName = "hection-2017-".randomImage().'.'.$image->getClientOriginalExtension();
 
             $image = \Image::make($image);
 
@@ -71,13 +71,13 @@ class WebarqController extends Controller
             }
 
             return redirect(urlBackendAction('index'))->with('success','Data has been deleted');
-            
+
         }catch(\Exception $e){
-        
+
             return redirect(urlBackendAction('index'))->with('info','Data cannot be deleted');
         }
 
-        	
+
     }
 
     public function publish($model)
@@ -86,7 +86,7 @@ class WebarqController extends Controller
         {
             $status = 'n';
             $msg = 'Data has been Un Published';
-        
+
         }else{
             $status = 'y';
             $msg = 'Data has been Published';
@@ -112,7 +112,7 @@ class WebarqController extends Controller
             $model = $model;
         }
 
-        
+
         $inputs = $request->all();
         $inputs['menu_id'] = $menu->id;
         $inputs['banner']=$this->handleUpload($request,$model,'banner',$resize);

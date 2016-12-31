@@ -32,15 +32,14 @@
 <script type="text/javascript" src="{{ asset(null) }}backend/elfinder/js/elfinder.min.js"></script>
 <script src="{{ asset(null) }}backend/ckeditor/ckeditor.js"></script>
 <script src="{{ asset(null) }}backend/js/dropdown.js"></script>
+<script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
 
-
-
-<title>{{ webarq()->backendName }}</title>
+<title>Hection Admin - {{ webarq::titleActionForm() }}</title>
 </head>
 <body>
 <div id="wrapper">
     <div id="app_header">
-        <div id="icon">WEBARQ Content Management System 1.0.0</div>
+        <div id="icon">Hection Admin Panel</div>
         <div id="welcome-message">
             <div class="fl" id="message">
                 Welcome <span class="username"><a href="http://localhost:94/wcms/admin-cp/user/profile">{{ getUser()->username }}</a></span>

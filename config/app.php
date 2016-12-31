@@ -147,6 +147,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Proengsoft\JsValidation\JsValidationServiceProvider::class,
+
 
         /*
          * Application Service Providers...
@@ -211,6 +213,7 @@ return [
         'Table' => Yajra\Datatables\Datatables::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Chart' => Oblagio\Highcharts\Facade::class,
+        'JsValidator' => Proengsoft\JsValidation\Facades\JsValidatorFacade::class,
     ],
 
 ];
