@@ -39,5 +39,13 @@ class MenuSeed extends Seeder
             'order'         => '3'
           ],['index','create','update','view','delete']
           );
+          \webarq::addMenu([
+            'parent_id'     => 'cms',
+            'title'         => 'Day',
+            'controller'    => 'CMS\DayController',
+            'slug'          => 'day',
+            'order'         => '4'
+          ],['index','create','update','delete']
+          );
     }
 }
