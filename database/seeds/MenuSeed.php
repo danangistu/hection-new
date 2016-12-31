@@ -47,5 +47,13 @@ class MenuSeed extends Seeder
             'order'         => '4'
           ],['index','create','update','delete']
           );
+          \webarq::addMenu([
+            'parent_id'     => 'cms',
+            'title'         => 'Program',
+            'controller'    => 'CMS\ProgramController',
+            'slug'          => 'program',
+            'order'         => '5'
+          ],['index','create','update','view','delete']
+          );
     }
 }
