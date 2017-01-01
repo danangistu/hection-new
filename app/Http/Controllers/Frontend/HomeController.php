@@ -13,6 +13,7 @@ use App\Models\Day;
 use App\Models\Sponsor;
 use App\Models\Winner;
 use App\Models\Testimonial;
+use App\Models\TestimonialBanner;
 use App\Models\Gallery;
 use App\Models\Prize;
 use App\Models\Venue;
@@ -34,6 +35,7 @@ class HomeController extends Controller
       $sponsors       = Sponsor::orderBy('id')->get();
       $winners        = Winner::orderBy('order')->get();
       $testimonials   = Testimonial::orderBy('id')->get();
+      $testimonialbanner = TestimonialBanner::firstOrFail();
       $galleries      = Gallery::orderBy('id')->get();
       $files          = AddFile::orderBy('order')->get();
       return view('frontend.content', [
@@ -43,6 +45,7 @@ class HomeController extends Controller
         'count_contest' => $count_contest,
         'days'          => $days,
         'testimonials'  => $testimonials,
+        'testimonialbanner'  => $testimonialbanner,
         'sponsors'      => $sponsors,
         'winners'       => $winners,
         'galleries'     => $galleries,

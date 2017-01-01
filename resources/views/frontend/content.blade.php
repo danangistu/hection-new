@@ -324,7 +324,7 @@
   </section>
 
   <!-- TESTIMONIAL -->
-  <section id="testimonial">
+  <section id="testimonial" style="background-image: url({{ asset('contents/'.$testimonialbanner->image) }});">
       <div class="container-fluid">
           <div class="row">
 
