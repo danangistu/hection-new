@@ -18,6 +18,7 @@ Route::resource('/','Frontend\HomeController');
 Route::get('contest/{id}','Frontend\ContestController@viewContest');
 Route::get('winner/{id}','Frontend\WinnerController@viewWinner');
 Route::resource('register','Frontend\RegisterController');
+Route::resource('newsletter','Frontend\NewsLetterController');
 /*
 |--------------------------------------------------------------------------
 | Application Routes
