@@ -35,13 +35,13 @@
                   <div class="row">
 
                       <div class="feature col-lg-6 col-md-6 col-sm-6">
-                          <i class="pe-4x pe-7s-refresh-2"></i>
+                          <i class="pe-4x pe-7s-like2"></i>
                           <h4>{{ $about->pur_1 }}</h4>
                           <p>{{ $about->pur_text_1 }}</p>
                       </div>
 
                       <div class="feature col-lg-6 col-md-6 col-sm-6">
-                          <i class="pe-4x pe-7s-micro"></i>
+                          <i class="pe-4x pe-7s-medal"></i>
                           <h4>{{ $about->pur_2 }}</h4>
                           <p>{{ $about->pur_text_2 }}</p>
                       </div>
@@ -50,13 +50,13 @@
                   <div class="row">
 
                       <div class="feature col-lg-6 col-md-6 col-sm-6">
-                          <i class="pe-4x pe-7s-headphones"></i>
+                          <i class="pe-4x pe-7s-comment"></i>
                           <h4>{{ $about->pur_3 }}</h4>
                           <p>{{ $about->pur_text_3 }}</p>
                       </div>
 
                       <div class="feature col-lg-6 col-md-6 col-sm-6">
-                          <i class="pe-4x pe-7s-headphones"></i>
+                          <i class="pe-4x pe-7s-speaker"></i>
                           <h4>{{ $about->pur_4 }}</h4>
                           <p>{{ $about->pur_text_4 }}</p>
                       </div>
@@ -83,7 +83,7 @@
                   <li class="col-lg-3 col-md-3 col-sm-4">
                       <div class="speaker">
                           <figure class="effect-ming">
-                              <img class="img-responsive" src="{{ asset($contest->picture) }}" alt=""/>
+                              <img class="img-responsive" src="{{ asset('contents/'.$contest->image) }}" alt=""/>
                               <figcaption>
                                   <span><a class="html-popup" href="{{ url('contest/'.$contest->id) }}"><img class="img-responsive" src="{{ asset('frontend/img/plus.png') }}" alt=""></a></span>
                               </figcaption>
@@ -192,7 +192,7 @@
                   <div class="row">
 
                       <div class="col-lg-4 col-md-4 col-sm-3">
-                          <img class="img-responsive" src="{{ asset($prize->picture) }}" alt="">
+                          <img class="img-responsive" src="{{ asset('contents/'.$prize->image) }}" alt="">
                       </div>
 
                       <div class="col-lg-8 col-md-8 col-sm-9">
@@ -221,7 +221,7 @@
                         <h2 class="uppercase">venue</h2>
                           <p class="lead"><?php echo $venue->description ?></p>
                       <h4>{{ $venue->place }}</h4>
-                          <img class="img-responsive" src="{{ $venue->picture }}" alt="venue" height="150">
+                          <img class="img-responsive" src="{{ asset('contents/'.$venue->image) }}" alt="venue" height="150">
                       </div>
 
                       <div class="col-lg-4 col-md-4 col-sm-4">
@@ -252,7 +252,7 @@
                     @foreach($winners as $winner)
                       <div class="item">
                         <div class="hotel">
-                            <img class="img-responsive" src="{{ asset($winner->picture) }}" alt="">
+                            <img class="img-responsive" src="{{ asset('contents/'.$winner->image) }}" alt="">
                               <div class="caption">
                                 <h5 class="uppercase">{{ $winner->school }}</h5>
                                   <p class="small">{{ $winner->title }}</p>
@@ -281,8 +281,13 @@
             </div>
 
             <div class="col-lg-12 text-center">
-              <a class="button button-small button-line-dark" href="">download guideline</a>
               <a class="button button-small button-line-dark html-popup" href="{{ url('register') }}">register now</a>
+            </div>
+            <div class="col-lg-12 text-center"> &nbsp</div>
+            <div class="col-lg-12 text-center">
+              <a class="button button-small button-line-dark" href="">download guideline</a>
+              <a class="button button-small button-line-important" href="">Motion Release</a>
+              <a class="button button-small button-line-dark" href="">Juklak</a>
             </div>
 
           </div>
@@ -301,10 +306,10 @@
                   <div id="timeline" data-columns>
                     @foreach($galleries as $gallery)
                       <div class="item wrap">
-                          <img class="img-responsive" src="{{ asset($gallery->picture) }}" alt="">
+                          <img class="img-responsive" src="{{ asset('contents/'.$gallery->image) }}" alt="">
                           <div class="overlay"></div>
                           <div class="icon">
-                              <a class="image-popup" href="{{ asset($gallery->picture) }}" title="<h4>{{ $gallery->title }}</h4>{{ $gallery->description }}"><i class="pe-3x pe-7s-plus"></i></a>
+                              <a class="image-popup" href="{{ asset('contents/'.$gallery->image) }}" title="<h4>{{ $gallery->title }}</h4>{{ $gallery->description }}"><i class="pe-3x pe-7s-plus"></i></a>
                           </div>
                       </div>
                     @endforeach
@@ -327,7 +332,7 @@
                       <div id="testimonial-carousel">
                         @foreach($testimonials as $testimonial)
                           <div class="item">
-                              <img class="img-circle" src="{{ asset($testimonial->picture) }}" alt="">
+                              <img class="img-circle" src="{{ asset('contents/'.$testimonial->image) }}" alt="">
                               <p class="lead"><?php echo $testimonial->testimonial; ?></p>
                               <p class="name"><big>{{ $testimonial->name }}</big> - <small>{{ $testimonial->role }}</small></p>
                           </div>
@@ -351,7 +356,7 @@
                   <div id="sponsors-carousel">
                     @foreach($sponsors as $sponsor)
                       <div class="sponsor">
-                          <a href="http://{{ $sponsor->link }}"><img class="img-responsive" src="{{ asset($sponsor->picture) }}" alt="{{ $sponsor->name }}"></a>
+                          <a href="http://{{ $sponsor->link }}"><img class="img-responsive" src="{{ asset('contents/'.$sponsor->image) }}" alt="{{ $sponsor->name }}"></a>
                       </div>
                     @endforeach
                   </div>

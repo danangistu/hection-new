@@ -6,20 +6,20 @@
             <div class="col-lg-6 col-md-6 col-sm-6">
               <h4 class="uppercase">{{ $about->title }}</h4>
                 <p class="small"><?php echo substr($about->about,0,200) ?></p>
-                <!-- <ul class="list-unstyled list-inline uppercase">
-                  @if(!empty(Config::get('settings')->facebook))
-                    <li><a href="{{ Config::get('settings')->facebook }}"><i class="fa fa-lg fa-facebook"></i></a></li>
+                <ul class="list-unstyled list-inline uppercase">
+                  @if(!empty($config->facebook))
+                    <li><a href="{{ $config->facebook }}"><i class="fa fa-lg fa-facebook"></i></a></li>
                   @endif
-                  @if(!empty(Config::get('settings')->twitter))
-                    <li><a href="{{ Config::get('settings')->twitter }}"><i class="fa fa-lg fa-twitter"></i></a></li>
+                  @if(!empty($config->twitter))
+                    <li><a href="{{ $config->twitter }}"><i class="fa fa-lg fa-twitter"></i></a></li>
                   @endif
-                  @if(!empty(Config::get('settings')->instagram))
-                    <li><a href="{{ Config::get('settings')->instagram }}"><i class="fa fa-lg fa-instagram"></i></a></li>
+                  @if(!empty($config->instagram))
+                    <li><a href="{{ $config->instagram }}"><i class="fa fa-lg fa-instagram"></i></a></li>
                   @endif
-                  @if(!empty(Config::get('settings')->email))
-                    <li><a href="mailto:{{ Config::get('settings')->email }}"><i class="fa fa-lg fa-envelope"></i></a></li>
+                  @if(!empty($config->email))
+                    <li><a href="mailto:{{ $config->email }}"><i class="fa fa-lg fa-envelope"></i></a></li>
                   @endif
-                </ul> -->
+                </ul>
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-12">

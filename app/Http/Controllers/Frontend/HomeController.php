@@ -16,6 +16,7 @@ use App\Models\Testimonial;
 use App\Models\Gallery;
 use App\Models\Prize;
 use App\Models\Venue;
+use App\Models\Config;
 
 class HomeController extends Controller
 {
@@ -29,9 +30,10 @@ class HomeController extends Controller
       $count_contest  = Contest::count();
       $days           = Day::orderBy('date')->get();
       $sponsors       = Sponsor::orderBy('id')->get();
-      $winners         = Winner::orderBy('order')->get();
+      $winners        = Winner::orderBy('order')->get();
       $testimonials   = Testimonial::orderBy('id')->get();
       $galleries      = Gallery::orderBy('id')->get();
+      $config         = Config::firstOrFail();
       return view('frontend.content', [
         'sliders'       => $sliders,
         'about'         => $about,
@@ -43,7 +45,8 @@ class HomeController extends Controller
         'winners'       => $winners,
         'galleries'     => $galleries,
         'prize'         => $prize,
-        'venue'         => $venue
+        'venue'         => $venue,
+        'config'       => $config,
       ]);
   }
 }

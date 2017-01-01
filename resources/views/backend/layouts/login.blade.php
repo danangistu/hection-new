@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset(null) }}backend/sweetalert/dist/sweetalert.css">
 <script type="text/javascript" src="{{ asset(null) }}backend/js/1.8.0.js"></script>
 <script src="{{ asset(null) }}backend/sweetalert/dist/sweetalert.min.js"></script>
-
+<link rel="shortcut icon" href="{{ asset('frontend/img/favicon.ico') }}">
 
 <title>{{ $title }}</title>
 </head>

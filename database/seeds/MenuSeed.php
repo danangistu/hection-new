@@ -103,5 +103,22 @@ class MenuSeed extends Seeder
             'order'         => '11'
           ],['index','create','update','delete']
           );
+
+      //Content Management
+      \webarq::addMenu([
+        'parent_id'     => null,
+        'title'         => 'Settings',
+        'controller'    => '#',
+        'slug'          => 'settings',
+        'order'         => 10,
+      ],[]);
+          \webarq::addMenu([
+            'parent_id'     => 'settings',
+            'title'         => 'Global Config',
+            'controller'    => 'Setting\ConfigController',
+            'slug'          => 'config',
+            'order'         => '1'
+          ],['index']
+          );
     }
 }

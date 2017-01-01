@@ -1077,6 +1077,19 @@ textarea {
 	text-decoration:none;
 }
 
+.button-line-important {
+	color:#e74c3c;
+	background:transparent;
+	border:2px solid #e74c3c;
+}
+
+.button-line-important:hover,
+.button-line-important:active {
+	color: #ffffff;
+	background: #e74c3c;
+	text-decoration:none;
+}
+
 
 /* PRELOAD */
 

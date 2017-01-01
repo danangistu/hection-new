@@ -14,6 +14,7 @@
                 <div class = 'col-md-6'>
 
                     @include('backend.common.errors')
+                    @include('backend.common.flashes')
 
                      {!! Form::model($model,['files'=>true]) !!}
                      <div class="form-group">
