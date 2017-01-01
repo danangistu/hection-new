@@ -1,28 +1,32 @@
 <?php
 
-namespace App\Http\Controllers\Backend\CMS;
+namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Backend\WebarqController;
-use App\Models\Day;
+use App\Models\AddFile;
 use Table;
+use File;
 
-class DayController extends WebarqController
+class AddFileController extends WebarqController
 {
-  public function __construct(Day $model)
+  public function __construct(AddFile $model)
   {
     parent::__construct();
     $this->model = $model;
-    $this->view = 'backend.cms.day.';
+    $this->view = 'backend.setting.addfile.';
   }
 
   public function getData()
   {
-    $model = $this->model->select('id','day','date');
+    $model = $this->model->select('id','file','name','type','order')->orderBy('order');
 
     $table = Table::of($model)
+    ->addColumn('file', function($model){
+      return \Html::link('contents/file/'.$model->file);
+    })
     ->addColumn('action',function($model){
       $status = $model->status == 'y' ? true : false;
       return \webarq::buttons($model->id , [] , $status);
@@ -44,11 +48,12 @@ class DayController extends WebarqController
     ]);
   }
 
-  public function postCreate(Requests\Backend\CMS\DayRequest $request)
+  public function postCreate(Requests\Backend\Setting\AddFileRequest $request)
   {
     try{
       $inputs = $request->all();
       $model = $this->model;
+      $inputs['file']=$this->upload_file($inputs,$model,$request,'file');
       return $this->save($model,$inputs);
     }catch(\Exception $e){
       echo $e->getMessage();
@@ -63,11 +68,17 @@ class DayController extends WebarqController
     ]);
   }
 
-  public function postUpdate(Requests\Backend\CMS\DayRequest $request,$id)
+  public function postUpdate(Requests\Backend\Setting\AddFileRequest $request,$id)
   {
     try{
       $inputs = $request->all();
       $model = $this->model->findOrFail($id);
+      $filename = $model->file;
+      if (isset($inputs['file'])){
+        $inputs['file']=$this->upload_file($inputs,$model,$request,'file');
+      }else{
+        $inputs['file'] = $filename;
+      }
       return $this->update($model,$inputs);
     }catch(\Exception $e){
       echo $e->getMessage();
@@ -79,6 +90,7 @@ class DayController extends WebarqController
   {
     try{
       $model = $this->model->findOrFail($id);
+      File::delete('contents/'.$model->image);
       return $this->delete($model);
     }catch(\Exception $e){
       echo $e->getMessage();

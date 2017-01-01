@@ -18,7 +18,7 @@ class MenuSeed extends Seeder
           \webarq::addMenu([
             'parent_id'     => 'cms',
             'title'         => 'Slider',
-            'controller'    => 'CMS\SliderController',
+            'controller'    => 'SliderController',
             'slug'          => 'slider',
             'order'         => '1'
           ],['index','create','update','view','delete']
@@ -26,7 +26,7 @@ class MenuSeed extends Seeder
           \webarq::addMenu([
             'parent_id'     => 'cms',
             'title'         => 'About',
-            'controller'    => 'CMS\AboutController',
+            'controller'    => 'AboutController',
             'slug'          => 'about',
             'order'         => '2'
           ],['index']
@@ -34,7 +34,7 @@ class MenuSeed extends Seeder
           \webarq::addMenu([
             'parent_id'     => 'cms',
             'title'         => 'Contest',
-            'controller'    => 'CMS\ContestController',
+            'controller'    => 'ContestController',
             'slug'          => 'contest',
             'order'         => '3'
           ],['index','create','update','view','delete']
@@ -42,7 +42,7 @@ class MenuSeed extends Seeder
           \webarq::addMenu([
             'parent_id'     => 'cms',
             'title'         => 'Day',
-            'controller'    => 'CMS\DayController',
+            'controller'    => 'DayController',
             'slug'          => 'day',
             'order'         => '4'
           ],['index','create','update','delete']
@@ -50,7 +50,7 @@ class MenuSeed extends Seeder
           \webarq::addMenu([
             'parent_id'     => 'cms',
             'title'         => 'Program',
-            'controller'    => 'CMS\ProgramController',
+            'controller'    => 'ProgramController',
             'slug'          => 'program',
             'order'         => '5'
           ],['index','create','update','view','delete']
@@ -58,7 +58,7 @@ class MenuSeed extends Seeder
           \webarq::addMenu([
             'parent_id'     => 'cms',
             'title'         => 'Gallery',
-            'controller'    => 'CMS\GalleryController',
+            'controller'    => 'GalleryController',
             'slug'          => 'gallery',
             'order'         => '6'
           ],['index','create','update','view','delete']
@@ -66,7 +66,7 @@ class MenuSeed extends Seeder
           \webarq::addMenu([
             'parent_id'     => 'cms',
             'title'         => 'Winner',
-            'controller'    => 'CMS\WinnerController',
+            'controller'    => 'WinnerController',
             'slug'          => 'winner',
             'order'         => '7'
           ],['index','create','update','view','delete']
@@ -74,7 +74,7 @@ class MenuSeed extends Seeder
           \webarq::addMenu([
             'parent_id'     => 'cms',
             'title'         => 'Prize',
-            'controller'    => 'CMS\PrizeController',
+            'controller'    => 'PrizeController',
             'slug'          => 'prize',
             'order'         => '8'
           ],['index']
@@ -82,7 +82,7 @@ class MenuSeed extends Seeder
           \webarq::addMenu([
             'parent_id'     => 'cms',
             'title'         => 'Venue',
-            'controller'    => 'CMS\VenueController',
+            'controller'    => 'VenueController',
             'slug'          => 'venue',
             'order'         => '9'
           ],['index']
@@ -90,7 +90,7 @@ class MenuSeed extends Seeder
           \webarq::addMenu([
             'parent_id'     => 'cms',
             'title'         => 'Testimonial',
-            'controller'    => 'CMS\TestimonialController',
+            'controller'    => 'TestimonialController',
             'slug'          => 'testimonial',
             'order'         => '10'
           ],['index','create','update','view','delete']
@@ -98,7 +98,7 @@ class MenuSeed extends Seeder
           \webarq::addMenu([
             'parent_id'     => 'cms',
             'title'         => 'Testimonial Banner',
-            'controller'    => 'CMS\TestimonialBannerController',
+            'controller'    => 'TestimonialBannerController',
             'slug'          => 'testimonialbanner',
             'order'         => '11'
           ],['index']
@@ -106,7 +106,7 @@ class MenuSeed extends Seeder
           \webarq::addMenu([
             'parent_id'     => 'cms',
             'title'         => 'Sponsor',
-            'controller'    => 'CMS\SponsorController',
+            'controller'    => 'SponsorController',
             'slug'          => 'sponsor',
             'order'         => '12'
           ],['index','create','update','delete']
@@ -123,7 +123,7 @@ class MenuSeed extends Seeder
           \webarq::addMenu([
             'parent_id'     => 'settings',
             'title'         => 'Global Config',
-            'controller'    => 'Setting\ConfigController',
+            'controller'    => 'ConfigController',
             'slug'          => 'config',
             'order'         => '1'
           ],['index']
@@ -131,7 +131,7 @@ class MenuSeed extends Seeder
           \webarq::addMenu([
             'parent_id'     => 'settings',
             'title'         => 'Additional File',
-            'controller'    => 'Setting\AddFileController',
+            'controller'    => 'AddFileController',
             'slug'          => 'addfile',
             'order'         => '2'
           ],['index','create','update','delete']

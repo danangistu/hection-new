@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Backend\CMS;
+namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Backend\WebarqController;
-use App\Models\Prize;
+use App\Models\TestimonialBanner;
 
-class PrizeController extends WebarqController
+class TestimonialBannerController extends WebarqController
 {
-  public function __construct(Prize $model)
+  public function __construct(TestimonialBanner $model)
   {
     parent::__construct();
     $this->model = $model;
-    $this->view  = 'backend.cms.prize.';
+    $this->view  = 'backend.cms.testimonialbanner.';
   }
 
   public function getIndex()
@@ -24,14 +24,14 @@ class PrizeController extends WebarqController
     ]);
   }
 
-  public function postIndex(Requests\Backend\CMS\PrizeRequest $request)
+  public function postIndex(Requests\Backend\CMS\TestimonialBannerRequest $request)
   {
     try{
       $inputs = $request->all();
       $model  = $this->model->first();
       $img_name = $model->image;
       if (isset($inputs['image'])){
-        $inputs['image'] = $this->handleUpload($request,$model,'image');
+        $inputs['image'] = $this->handleUpload($request,$model,'image',[1200,500]);
       }else{
         $inputs['image'] = $img_name;
       }

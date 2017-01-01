@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Setting;
+namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Backend\WebarqController;
-use App\Models\Config;
+use App\Models\About;
 
-class ConfigController extends WebarqController
+class AboutController extends WebarqController
 {
-  public function __construct(Config $model)
+  public function __construct(About $model)
   {
     parent::__construct();
     $this->model = $model;
-    $this->view  = 'backend.setting.config.';
+    $this->view  = 'backend.cms.about.';
   }
 
   public function getIndex()
@@ -24,17 +24,11 @@ class ConfigController extends WebarqController
     ]);
   }
 
-  public function postIndex(Requests\Backend\Setting\ConfigRequest $request)
+  public function postIndex(Requests\Backend\CMS\AboutRequest $request)
   {
     try{
       $inputs = $request->all();
       $model  = $this->model->first();
-      $img_name = $model->image;
-      if (isset($inputs['image'])){
-        $inputs['image'] = $this->handleUpload($request,$model,'image',[120,53]);
-      }else{
-        $inputs['image'] = $img_name;
-      }
       return $this->update($model,$inputs);
     }catch(\Exception $e){
       echo $e->getMessage();

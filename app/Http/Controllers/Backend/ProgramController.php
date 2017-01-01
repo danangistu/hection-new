@@ -1,32 +1,31 @@
 <?php
 
-namespace App\Http\Controllers\Backend\CMS;
+namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Backend\WebarqController;
-use App\Models\Winner;
+use App\Models\Program;
+use App\Models\Day;
 use Table;
-use File;
 
-class WinnerController extends WebarqController
+class ProgramController extends WebarqController
 {
-  public function __construct(Winner $model)
+  public function __construct(Program $model, Day $day)
   {
     parent::__construct();
     $this->model = $model;
-    $this->view = 'backend.cms.winner.';
+    $this->day   = $day;
+    $this->view  = 'backend.cms.Program.';
   }
 
   public function getData()
   {
-    $model = $this->model->select('id','image','school','title','description','order')->orderBy('order');
+    $model = $this->model->select('programs.id','day_id','time','program','description','duration','place','day')
+    ->join('days', 'days.id', '=', 'programs.day_id');
 
     $table = Table::of($model)
-    ->addColumn('image', function($model){
-      return \Html::image('contents/'.$model->image,'Picture',array('height'=>200));
-    })
     ->addColumn('action',function($model){
       $status = $model->status == 'y' ? true : false;
       return \webarq::buttons($model->id , [] , $status);
@@ -45,15 +44,15 @@ class WinnerController extends WebarqController
   {
     return view($this->view.'_form',[
       'model'=>$this->model,
+      'days'=>$this->day->all(),
     ]);
   }
 
-  public function postCreate(Requests\Backend\CMS\WinnerRequest $request)
+  public function postCreate(Requests\Backend\CMS\ProgramRequest $request)
   {
     try{
       $inputs = $request->all();
       $model = $this->model;
-      $inputs['image'] = $this->handleUpload($request,$model,'image');
       return $this->save($model,$inputs);
     }catch(\Exception $e){
       echo $e->getMessage();
@@ -65,20 +64,15 @@ class WinnerController extends WebarqController
   {
     return view($this->view.'_form',[
       'model'=>$this->model->findOrFail($id),
+      'days'=>$this->day->all(),
     ]);
   }
 
-  public function postUpdate(Requests\Backend\CMS\WinnerRequest $request,$id)
+  public function postUpdate(Requests\Backend\CMS\ProgramRequest $request,$id)
   {
     try{
       $inputs = $request->all();
       $model = $this->model->findOrFail($id);
-      $img_name = $model->image;
-      if (isset($inputs['image'])){
-        $inputs['image'] = $this->handleUpload($request,$model,'image');
-      }else{
-        $inputs['image'] = $img_name;
-      }
       return $this->update($model,$inputs);
     }catch(\Exception $e){
       echo $e->getMessage();
@@ -90,7 +84,6 @@ class WinnerController extends WebarqController
   {
     try{
       $model = $this->model->findOrFail($id);
-      File::delete('contents/'.$model->image);
       return $this->delete($model);
     }catch(\Exception $e){
       echo $e->getMessage();
@@ -101,8 +94,11 @@ class WinnerController extends WebarqController
   public function getView($id)
   {
     $menu = injectModel('Menu');
+    $model = $this->model->select('programs.id','day_id','time','program','description','duration','place','day')
+    ->join('days', 'days.id', '=', 'programs.day_id')
+    ->first();
     return view($this->view.'view',compact('model','menu'),[
-      'model'=>$this->model->findOrFail($id),
+      'model'=>$model,
     ]);
   }
 }

@@ -1,31 +1,31 @@
 <?php
 
-namespace App\Http\Controllers\Backend\CMS;
+namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Backend\WebarqController;
-use App\Models\Contest;
+use App\Models\Winner;
 use Table;
 use File;
 
-class ContestController extends WebarqController
+class WinnerController extends WebarqController
 {
-  public function __construct(Contest $model)
+  public function __construct(Winner $model)
   {
     parent::__construct();
     $this->model = $model;
-    $this->view = 'backend.cms.contest.';
+    $this->view = 'backend.cms.winner.';
   }
 
   public function getData()
   {
-    $model = $this->model->select('id','image','title','sub_title','order')->orderBy('order');
+    $model = $this->model->select('id','image','school','title','description','order')->orderBy('order');
 
     $table = Table::of($model)
     ->addColumn('image', function($model){
-      return \Html::image('contents/'.$model->image,'Picture',array('height'=>150));
+      return \Html::image('contents/'.$model->image,'Picture',array('height'=>200));
     })
     ->addColumn('action',function($model){
       $status = $model->status == 'y' ? true : false;
@@ -48,12 +48,12 @@ class ContestController extends WebarqController
     ]);
   }
 
-  public function postCreate(Requests\Backend\CMS\ContestRequest $request)
+  public function postCreate(Requests\Backend\CMS\WinnerRequest $request)
   {
     try{
       $inputs = $request->all();
       $model = $this->model;
-      $inputs['image'] = $this->handleUpload($request,$model,'image',[350,350]);
+      $inputs['image'] = $this->handleUpload($request,$model,'image');
       return $this->save($model,$inputs);
     }catch(\Exception $e){
       echo $e->getMessage();
@@ -68,14 +68,14 @@ class ContestController extends WebarqController
     ]);
   }
 
-  public function postUpdate(Requests\Backend\CMS\ContestRequest $request,$id)
+  public function postUpdate(Requests\Backend\CMS\WinnerRequest $request,$id)
   {
     try{
       $inputs = $request->all();
       $model = $this->model->findOrFail($id);
       $img_name = $model->image;
       if (isset($inputs['image'])){
-        $inputs['image'] = $this->handleUpload($request,$model,'image',[350,350]);
+        $inputs['image'] = $this->handleUpload($request,$model,'image');
       }else{
         $inputs['image'] = $img_name;
       }

@@ -1,32 +1,28 @@
 <?php
 
-namespace App\Http\Controllers\Backend\CMS;
+namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Backend\WebarqController;
-use App\Models\Sponsor;
+use App\Models\Day;
 use Table;
-use File;
 
-class SponsorController extends WebarqController
+class DayController extends WebarqController
 {
-  public function __construct(Sponsor $model)
+  public function __construct(Day $model)
   {
     parent::__construct();
     $this->model = $model;
-    $this->view = 'backend.cms.sponsor.';
+    $this->view = 'backend.cms.day.';
   }
 
   public function getData()
   {
-    $model = $this->model->select('id','image','name','link','order')->orderBy('order');
+    $model = $this->model->select('id','day','date');
 
     $table = Table::of($model)
-    ->addColumn('image', function($model){
-      return \Html::image('contents/'.$model->image,'Picture',array('height'=>100));
-    })
     ->addColumn('action',function($model){
       $status = $model->status == 'y' ? true : false;
       return \webarq::buttons($model->id , [] , $status);
@@ -48,12 +44,11 @@ class SponsorController extends WebarqController
     ]);
   }
 
-  public function postCreate(Requests\Backend\CMS\SponsorRequest $request)
+  public function postCreate(Requests\Backend\CMS\DayRequest $request)
   {
     try{
       $inputs = $request->all();
       $model = $this->model;
-      $inputs['image'] = $this->handleUpload($request,$model,'image',[200,100]);
       return $this->save($model,$inputs);
     }catch(\Exception $e){
       echo $e->getMessage();
@@ -68,17 +63,11 @@ class SponsorController extends WebarqController
     ]);
   }
 
-  public function postUpdate(Requests\Backend\CMS\SponsorRequest $request,$id)
+  public function postUpdate(Requests\Backend\CMS\DayRequest $request,$id)
   {
     try{
       $inputs = $request->all();
       $model = $this->model->findOrFail($id);
-      $img_name = $model->image;
-      if (isset($inputs['image'])){
-        $inputs['image'] = $this->handleUpload($request,$model,'image',[200,100]);
-      }else{
-        $inputs['image'] = $img_name;
-      }
       return $this->update($model,$inputs);
     }catch(\Exception $e){
       echo $e->getMessage();
@@ -90,7 +79,6 @@ class SponsorController extends WebarqController
   {
     try{
       $model = $this->model->findOrFail($id);
-      File::delete('contents/'.$model->image);
       return $this->delete($model);
     }catch(\Exception $e){
       echo $e->getMessage();

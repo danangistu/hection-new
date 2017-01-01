@@ -1,31 +1,31 @@
 <?php
 
-namespace App\Http\Controllers\Backend\CMS;
+namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Backend\WebarqController;
-use App\Models\Slider;
+use App\Models\Gallery;
 use Table;
 use File;
 
-class SliderController extends WebarqController
+class GalleryController extends WebarqController
 {
-  public function __construct(Slider $model)
+  public function __construct(Gallery $model)
   {
     parent::__construct();
     $this->model = $model;
-    $this->view = 'backend.cms.slider.';
+    $this->view = 'backend.cms.gallery.';
   }
 
   public function getData()
   {
-    $model = $this->model->select('id','image','layer1','layer2','order')->orderBy('order');
+    $model = $this->model->select('id','image','title','description','order')->orderBy('order');
 
     $table = Table::of($model)
     ->addColumn('image', function($model){
-      return \Html::image('contents/'.$model->image,'Picture',array('height'=>150));
+      return \Html::image('contents/'.$model->image,'Picture',array('height'=>200));
     })
     ->addColumn('action',function($model){
       $status = $model->status == 'y' ? true : false;
@@ -48,12 +48,12 @@ class SliderController extends WebarqController
     ]);
   }
 
-  public function postCreate(Requests\Backend\CMS\SliderRequest $request)
+  public function postCreate(Requests\Backend\CMS\GalleryRequest $request)
   {
     try{
       $inputs = $request->all();
       $model = $this->model;
-      $inputs['image'] = $this->handleUpload($request,$model,'image',[1920,1080]);
+      $inputs['image'] = $this->handleUpload($request,$model,'image');
       return $this->save($model,$inputs);
     }catch(\Exception $e){
       echo $e->getMessage();
@@ -68,14 +68,14 @@ class SliderController extends WebarqController
     ]);
   }
 
-  public function postUpdate(Requests\Backend\CMS\SliderRequest $request,$id)
+  public function postUpdate(Requests\Backend\CMS\GalleryRequest $request,$id)
   {
     try{
       $inputs = $request->all();
       $model = $this->model->findOrFail($id);
       $img_name = $model->image;
       if (isset($inputs['image'])){
-        $inputs['image'] = $this->handleUpload($request,$model,'image',[1920,1080]);
+        $inputs['image'] = $this->handleUpload($request,$model,'image');
       }else{
         $inputs['image'] = $img_name;
       }

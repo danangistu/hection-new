@@ -1,31 +1,31 @@
 <?php
 
-namespace App\Http\Controllers\Backend\Setting;
+namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Backend\WebarqController;
-use App\Models\AddFile;
+use App\Models\Sponsor;
 use Table;
 use File;
 
-class AddFileController extends WebarqController
+class SponsorController extends WebarqController
 {
-  public function __construct(AddFile $model)
+  public function __construct(Sponsor $model)
   {
     parent::__construct();
     $this->model = $model;
-    $this->view = 'backend.setting.addfile.';
+    $this->view = 'backend.cms.sponsor.';
   }
 
   public function getData()
   {
-    $model = $this->model->select('id','file','name','type','order')->orderBy('order');
+    $model = $this->model->select('id','image','name','link','order')->orderBy('order');
 
     $table = Table::of($model)
-    ->addColumn('file', function($model){
-      return \Html::link('contents/file/'.$model->file);
+    ->addColumn('image', function($model){
+      return \Html::image('contents/'.$model->image,'Picture',array('height'=>100));
     })
     ->addColumn('action',function($model){
       $status = $model->status == 'y' ? true : false;
@@ -48,12 +48,12 @@ class AddFileController extends WebarqController
     ]);
   }
 
-  public function postCreate(Requests\Backend\Setting\AddFileRequest $request)
+  public function postCreate(Requests\Backend\CMS\SponsorRequest $request)
   {
     try{
       $inputs = $request->all();
       $model = $this->model;
-      $inputs['file']=$this->upload_file($inputs,$model,$request,'file');
+      $inputs['image'] = $this->handleUpload($request,$model,'image',[200,100]);
       return $this->save($model,$inputs);
     }catch(\Exception $e){
       echo $e->getMessage();
@@ -68,16 +68,16 @@ class AddFileController extends WebarqController
     ]);
   }
 
-  public function postUpdate(Requests\Backend\Setting\AddFileRequest $request,$id)
+  public function postUpdate(Requests\Backend\CMS\SponsorRequest $request,$id)
   {
     try{
       $inputs = $request->all();
       $model = $this->model->findOrFail($id);
-      $filename = $model->file;
-      if (isset($inputs['file'])){
-        $inputs['file']=$this->upload_file($inputs,$model,$request,'file');
+      $img_name = $model->image;
+      if (isset($inputs['image'])){
+        $inputs['image'] = $this->handleUpload($request,$model,'image',[200,100]);
       }else{
-        $inputs['file'] = $filename;
+        $inputs['image'] = $img_name;
       }
       return $this->update($model,$inputs);
     }catch(\Exception $e){
