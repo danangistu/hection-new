@@ -120,5 +120,13 @@ class MenuSeed extends Seeder
             'order'         => '1'
           ],['index']
           );
+          \webarq::addMenu([
+            'parent_id'     => 'settings',
+            'title'         => 'Additional File',
+            'controller'    => 'Setting\AddFileController',
+            'slug'          => 'addfile',
+            'order'         => '2'
+          ],['index','create','update','delete']
+          );
     }
 }

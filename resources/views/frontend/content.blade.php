@@ -285,9 +285,12 @@
             </div>
             <div class="col-lg-12 text-center"> &nbsp</div>
             <div class="col-lg-12 text-center">
-              <a class="button button-small button-line-dark" href="">download guideline</a>
-              <a class="button button-small button-line-important" href="">Motion Release</a>
-              <a class="button button-small button-line-dark" href="">Juklak</a>
+              @foreach($files as $file)
+              <?php
+                if ($file->type =='standart') $type = 'button-line-dark'; else $type = 'button-line-important';
+              ?>
+                <a class="button button-small {{$type}}" href="{{url('contents/file/'.$file->file)}}">{{$file->name}}</a>
+              @endforeach
             </div>
 
           </div>

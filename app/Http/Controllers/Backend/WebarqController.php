@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use File;
 class WebarqController extends Controller
 {
 	public function __construct()
@@ -154,4 +154,21 @@ class WebarqController extends Controller
 
         return $result;
     }
+
+		public function upload_file($inputs,$model,$request,$fieldName){
+			$file = $model->file;
+			if (isset($inputs['file'])){
+	      if (File::exists('contents/'.$fieldName.'/'. $file))
+	        File::delete('contents/'.$fieldName.'/'.$file);
+
+	      $file = $request->file('file');
+	      $destinationPath = 'contents/'.$fieldName.'/';
+	      $fileName = "hection-2017-".$fieldName.'-'.str_random('5').'.'.$file->getClientOriginalExtension();
+	      $request->file('file')->move($destinationPath, $fileName);
+	      $inputs['file'] = $fileName;
+	    }else{
+	      $inputs['file'] = $file;
+	    }
+			return $inputs['file'];
+		}
 }
