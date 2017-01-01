@@ -130,7 +130,7 @@
                       <!-- DAY 1 -->
                       <div role="tabpanel" class="tab-pane fade active in" id="{{ str_slug($day->day) }}" aria-labelledby="{{str_slug($day->day).'-tab'}}">
                           <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
-                            <?php $programs = App\Program::where('day_id','=',$day->id)->orderBy('id')->get(); ?>
+                            <?php $programs = App\Models\Program::where('day_id','=',$day->id)->orderBy('id')->get(); ?>
                             @foreach ($programs as $program)
                               <!-- PROGRAM 1-->
                               <div class="panel panel-default">

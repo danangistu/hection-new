@@ -3,9 +3,9 @@
   <div class="tp-banner">
 <ul>
   @foreach($sliders as $slider)
-    <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-thumb="{{ asset($slider->picture) }}"  data-saveperformance="off"  data-title="Slide">
+    <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-thumb="{{ asset('contents/'.$slider->image) }}"  data-saveperformance="off"  data-title="Slide">
         <!-- MAIN IMAGE -->
-        <img src="{{ asset($slider->picture) }}"  alt="fullslide1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+        <img src="{{ asset('contents/'.$slider->image) }}"  alt="fullslide1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
         <!-- LAYERS -->
 
         <!-- LAYER NR. 1 -->

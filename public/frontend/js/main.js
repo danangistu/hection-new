@@ -272,7 +272,7 @@ jQuery(document).ready(function($) {
 
 	// Add information window
 	var infowindow1 = new google.maps.InfoWindow({
-		content:  createInfo('Politeknik Negeri Semarang', 'Jl. Prof. H. Soedarto, S.H., Tembalang,<br /> Semarang, Jawa Tengah<br />50275<br />Indonesia<br />')
+		content:  createInfo('Polines', 'Jl. Prof. H. Soedarto, S.H., Tembalang,<br /> Semarang, Jawa Tengah<br />50275<br />Indonesia<br />')
 	});
 
 	// Create information window

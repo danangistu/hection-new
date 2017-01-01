@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="{{ url('/') }}"><img src="{{ Config::get('settings')->logo }}" alt="logo"></a>
+      <a href="{{ url('/') }}"><img src="" alt="logo"></a>
     </div>
 
     <div class="collapse navbar-collapse" id="nav">

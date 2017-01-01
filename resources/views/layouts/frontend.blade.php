@@ -23,24 +23,24 @@
 
 
         <!-- CSS -->
-        <link rel="stylesheet" href="{{ url(elixir('frontend/css/bootstrap.css')) }}">
+        <link rel="stylesheet" href="{{ url('frontend/css/bootstrap.css') }}">
 
-        <link rel="stylesheet" href="{{ url(elixir('frontend/css/pe-icon-7-stroke.css')) }}">
-        <link rel="stylesheet" href="{{ url(elixir('frontend/css/helper.css')) }}">
-        <link rel="stylesheet" href="{{ url(elixir('frontend/css/animate.min.css')) }}">
-        <link rel="stylesheet" href="{{ url(elixir('frontend/css/font-awesome.css')) }}">
-        <link rel="stylesheet" href="{{ url(elixir('frontend/css/font.css')) }}">
-        <link rel="stylesheet" href="{{ url(elixir('frontend/css/salvattore.css')) }}">
-        <link rel="stylesheet" href="{{ url(elixir('frontend/css/jquery.countdown.css')) }}">
-        <link rel="stylesheet" href="{{ url(elixir('frontend/css/magnific-popup.css')) }}">
-        <link rel="stylesheet" href="{{ url(elixir('frontend/css/jquery.mCustomScrollbar.css')) }}">
-        <link rel="stylesheet" href="{{ url(elixir('frontend/css/owl.carousel.css')) }}">
-        <link rel="stylesheet" href="{{ url(elixir('frontend/css/owl.theme.css')) }}">
-        <link rel="stylesheet" href="{{ url(elixir('frontend/css/owl.transitions.css')) }}">
-        <link rel="stylesheet" href="{{ url(elixir('frontend/css/revolution.css')) }}">
-        <link rel="stylesheet" href="{{ url(elixir('frontend/css/revolution-extralayers.css')) }}">
+        <link rel="stylesheet" href="{{ url('frontend/css/pe-icon-7-stroke.css') }}">
+        <link rel="stylesheet" href="{{ url('frontend/css/helper.css') }}">
+        <link rel="stylesheet" href="{{ url('frontend/css/animate.min.css') }}">
+        <link rel="stylesheet" href="{{ url('frontend/css/font-awesome.css') }}">
+        <link rel="stylesheet" href="{{ url('frontend/css/font.css') }}">
+        <link rel="stylesheet" href="{{ url('frontend/css/salvattore.css') }}">
+        <link rel="stylesheet" href="{{ url('frontend/css/jquery.countdown.css') }}">
+        <link rel="stylesheet" href="{{ url('frontend/css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ url('frontend/css/jquery.mCustomScrollbar.css') }}">
+        <link rel="stylesheet" href="{{ url('frontend/css/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ url('frontend/css/owl.theme.css') }}">
+        <link rel="stylesheet" href="{{ url('frontend/css/owl.transitions.css') }}">
+        <link rel="stylesheet" href="{{ url('frontend/css/revolution.css') }}">
+        <link rel="stylesheet" href="{{ url('frontend/css/revolution-extralayers.css') }}">
 
-        <link rel="stylesheet" href="{{ url(elixir('frontend/css/main.css')) }}">
+        <link rel="stylesheet" href="{{ url('frontend/css/main.css') }}">
 
 
         <!-- Font -->
@@ -65,25 +65,25 @@
   @yield('content')
   @include('frontend.footer')
 
-  <script src="{{ url(elixir('frontend/js/jquery-1.11.1.min.js')) }}"></script>
-  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-  <script src="{{ url(elixir('frontend/js/jquery.themepunch.tools.min.js')) }}"></script>
-  <script src="{{ url(elixir('frontend/js/jquery.themepunch.revolution.min.js')) }}"></script>
-  <script src="{{ url(elixir('frontend/js/bootstrap.min.js')) }}"></script>
-  <script src="{{ url(elixir('frontend/js/jquery.sticky.js')) }}"></script>
-  <script src="{{ url(elixir('frontend/js/jquery.magnific-popup.min.js')) }}"></script>
-  <script src="{{ url(elixir('frontend/js/salvattore.js')) }}"></script>
-  <script src="{{ url(elixir('frontend/js/jquery.countdown.js')) }}"></script>
-  <script src="{{ url(elixir('frontend/js/jquery.mCustomScrollbar.concat.min.js')) }}"></script>
-  <script src="{{ url(elixir('frontend/js/waypoints.min.js')) }}"></script>
-  <script src="{{ url(elixir('frontend/js/jquery.counterup.min.js')) }}"></script>
-  <script src="{{ url(elixir('frontend/js/owl.carousel.min.js')) }}"></script>
-  <script src="{{ url(elixir('frontend/js/retina.js')) }}"></script>
+  <script src="{{ url('frontend/js/jquery-1.11.1.min.js') }}"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyD6FPuTbVzE_9HN0inacgb4XUKcaXvEnnc"></script>
+  <script src="{{ url('frontend/js/jquery.themepunch.tools.min.js') }}"></script>
+  <script src="{{ url('frontend/js/jquery.themepunch.revolution.min.js') }}"></script>
+  <script src="{{ url('frontend/js/bootstrap.min.js') }}"></script>
+  <script src="{{ url('frontend/js/jquery.sticky.js') }}"></script>
+  <script src="{{ url('frontend/js/jquery.magnific-popup.min.js') }}"></script>
+  <script src="{{ url('frontend/js/salvattore.js') }}"></script>
+  <script src="{{ url('frontend/js/jquery.countdown.js') }}"></script>
+  <script src="{{ url('frontend/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+  <script src="{{ url('frontend/js/waypoints.min.js') }}"></script>
+  <script src="{{ url('frontend/js/jquery.counterup.min.js') }}"></script>
+  <script src="{{ url('frontend/js/owl.carousel.min.js') }}"></script>
+  <script src="{{ url('frontend/js/retina.js') }}"></script>
 
   <script src="{{ url('frontend/js/main.js') }}"></script>
 
   <!-- GOOGLE ANALYTICS -->
-  <script>
+  <!-- <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -92,8 +92,8 @@
   ga('create', 'UA-3788027-10', 'themecube.net');
   ga('send', 'pageview');
 
-  </script>
-	<script>
+  </script> -->
+	<!-- <script>
 	    @if(!empty(Config::get('settings')->analytics_id))
 	        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -114,7 +114,7 @@
 	            (d.head || d.body).appendChild(s);
 	        })();
 	    @endif
-	</script>
+	</script> -->
 
   </body>
 </html>

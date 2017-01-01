@@ -991,6 +991,7 @@ footer dt {
 /* FORM ELEMENTS */
 
 input[type="text"],
+input[type="password"],
 input[type="email"],
 select,
 textarea {

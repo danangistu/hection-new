@@ -6,7 +6,6 @@
 
                 <div class="col-lg-12">
                 	<h2 class="uppercase">register</h2>
-                    <p>Fill the following form to register</p>
                 </div>
                 <!-- REGISTER FORM -->
                 <div class="register-form col-lg-12">

@@ -6,7 +6,7 @@
             <div class="col-lg-6 col-md-6 col-sm-6">
               <h4 class="uppercase">{{ $about->title }}</h4>
                 <p class="small"><?php echo substr($about->about,0,200) ?></p>
-                <ul class="list-unstyled list-inline uppercase">
+                <!-- <ul class="list-unstyled list-inline uppercase">
                   @if(!empty(Config::get('settings')->facebook))
                     <li><a href="{{ Config::get('settings')->facebook }}"><i class="fa fa-lg fa-facebook"></i></a></li>
                   @endif
@@ -19,7 +19,7 @@
                   @if(!empty(Config::get('settings')->email))
                     <li><a href="mailto:{{ Config::get('settings')->email }}"><i class="fa fa-lg fa-envelope"></i></a></li>
                   @endif
-                </ul>
+                </ul> -->
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-12">

@@ -11,10 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
-});
-
+// Route::get('/', function () {
+// 	return view('welcome');
+// });
+Route::resource('/','Frontend\HomeController');
+Route::get('contest/{id}','Frontend\ContestController@viewContest');
+Route::get('winner/{id}','Frontend\WinnerController@viewWinner');
+Route::resource('register','Frontend\RegisterController');
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -27,7 +30,7 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    
+
 	Route::controller('login','Backend\LoginController');
 
 	Route::get('admin-cp' , function(){
