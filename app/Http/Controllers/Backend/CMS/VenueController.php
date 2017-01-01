@@ -31,9 +31,15 @@ class VenueController extends WebarqController
       $model  = $this->model->first();
       $img_name = $model->image;
       if (isset($inputs['image'])){
-        $inputs['image'] = $this->handleUpload($request,$model,'image');
+        $inputs['image'] = $this->handleUpload($request,$model,'image',[150,150]);
       }else{
         $inputs['image'] = $img_name;
+      }
+      $img_name = $model->banner;
+      if (isset($inputs['banner'])){
+        $inputs['banner'] = $this->handleUpload($request,$model,'banner',[1200,500]);
+      }else{
+        $inputs['banner'] = $img_name;
       }
       return $this->update($model,$inputs);
     }catch(\Exception $e){

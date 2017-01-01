@@ -212,7 +212,7 @@
   <!-- VENUE -->
   <section id="venue">
 
-      <div class="venue">
+      <div class="venue" style="background-image: url({{ asset('contents/'.$venue->banner) }})">
         <div class="venue-inner">
             <div class="container">
                 <div class="row">

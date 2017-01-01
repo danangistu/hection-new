@@ -6,7 +6,7 @@
             	<button title="Close (Esc)" type="button" class="mfp-close">X</button>
 
                 <div class="col-md-5 col-lg-5 no-padding">
-                    <img class="img-responsive" src="{{ asset($win->image) }}" alt="" />
+                    <img class="img-responsive" src="{{ asset('contents/'.$win->image) }}" alt="" />
                 </div>
 
                 <div class="col-md-7 col-lg-7">

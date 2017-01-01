@@ -22,6 +22,7 @@
         <li><a data-toggle="elementscroll" href="#gallery">Gallery</a></li>
         <li><a data-toggle="elementscroll" href="#sponsors">Sponsors</a></li>
         <li><a data-toggle="elementscroll" href="#footer">Contact</a></li>
+        <li><a href="#"><span class="fa fa-user"></span> Membership</a></li>
       </ul>
     </div>
 

@@ -18,9 +18,15 @@
 
                      {!! Form::model($model,['files'=>true]) !!}
                      <div class="form-group">
-                       <label>Image Prize</label>
-                       @if(isset($model->image))<p><img src="{{ url('contents/'.$model->image) }}" height="200"></p>@endif
+                       <label>Image Logo (150x150)</label>
+                       @if(isset($model->image))<p><img src="{{ url('contents/'.$model->image) }}" height="100"></p>@endif
                        {!! Form::file('image' , null ,['class' => 'form-control']) !!}
+                     </div>
+
+                     <div class="form-group">
+                       <label>Image Banner (1200x500)</label>
+                       @if(isset($model->banner))<p><img src="{{ url('contents/'.$model->banner) }}" height="200"></p>@endif
+                       {!! Form::file('banner' , null ,['class' => 'form-control']) !!}
                      </div>
 
                      <div class="form-group">
