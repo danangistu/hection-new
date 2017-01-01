@@ -8,10 +8,10 @@
         <h3 class="user"> {{ webarq::titleActionForm() }}</h3>
     </div>
         <div id="content_body">
-            
+
             <div class = 'row'>
 
-                <div class = 'col-md-6'>
+                <div class = 'col-md-12'>
 
                     <div id = 'elfinder'>
 
@@ -30,7 +30,7 @@
       $().ready(function() {
           var elf = $('#elfinder').elfinder({
               url : '{{ url("backend/elfinder/php/connector.minimal.php") }}'
-          }).elfinder('instance');             
+          }).elfinder('instance');
       });
   </script>
 

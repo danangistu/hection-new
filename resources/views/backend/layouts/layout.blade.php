@@ -6,7 +6,7 @@
             @include('backend.layouts.menu')
             @yield('content')
             <div id="app_footer">
-                <div class="logo">Copyright &COPY; 2016 WEBARQ</div>
+                <div class="logo">Copyright HECTION &COPY; 2016</div>
                 <div class="clear"></div>
             </div>
         </div>

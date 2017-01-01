@@ -17,7 +17,8 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="{{ asset(null) }}backend/sweetalert/dist/sweetalert.css">
-<link rel="stylesheet" type="text/css" media="screen" href="{{ asset(null) }}backend//elfinder/css/elfinder.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="{{ asset(null) }}backend/elfinder/css/elfinder.min.css">
+<link rel="stylesheet" type="text/css" media="screen" href="{{ asset(null) }}backend/elfinder/css/elfinder_bootstrap.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script type="text/javascript" src="{{ asset(null) }}backend/js/jquery.alert.js"></script>
@@ -39,10 +40,10 @@
 <body>
 <div id="wrapper">
     <div id="app_header">
-        <div id="icon">Hection Admin Panel</div>
+        <div id="icon">HECTION Admin Panel</div>
         <div id="welcome-message">
             <div class="fl" id="message">
-                Welcome <span class="username"><a href="http://localhost:94/wcms/admin-cp/user/profile">{{ getUser()->username }}</a></span>
+                Hello <span class="username"><a href="{{url('admin-cp/profile/index')}}">{{ getUser()->name }}</a>!</span>
             </div>
             <div class="fl" id="logout">
                 <a href="{{ url('login/logout') }}"></a>

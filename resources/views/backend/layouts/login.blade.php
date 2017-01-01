@@ -36,7 +36,7 @@
             </div>
             @yield('content')
             <div class="wg-footer">
-                <div class="wording">WEBARQ Content Management System</div>
+                <div class="wording">HECTION Content Management System</div>
             </div>
             <div class="break10"></div>
             <div class="logo-webarq">Copyright &copy; 2016</div>
