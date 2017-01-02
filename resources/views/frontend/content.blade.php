@@ -37,13 +37,13 @@
                       <div class="feature col-lg-6 col-md-6 col-sm-6">
                           <i class="pe-4x pe-7s-like2"></i>
                           <h4>{{ $about->pur_1 }}</h4>
-                          <p>{{ $about->pur_text_1 }}</p>
+                          <?php echo $about->pur_text_1 ?>
                       </div>
 
                       <div class="feature col-lg-6 col-md-6 col-sm-6">
                           <i class="pe-4x pe-7s-medal"></i>
                           <h4>{{ $about->pur_2 }}</h4>
-                          <p>{{ $about->pur_text_2 }}</p>
+                          <?php echo $about->pur_text_2 ?>
                       </div>
 
                   </div>
@@ -52,13 +52,13 @@
                       <div class="feature col-lg-6 col-md-6 col-sm-6">
                           <i class="pe-4x pe-7s-comment"></i>
                           <h4>{{ $about->pur_3 }}</h4>
-                          <p>{{ $about->pur_text_3 }}</p>
+                          <?php echo $about->pur_text_3 ?>
                       </div>
 
                       <div class="feature col-lg-6 col-md-6 col-sm-6">
                           <i class="pe-4x pe-7s-speaker"></i>
                           <h4>{{ $about->pur_4 }}</h4>
-                          <p>{{ $about->pur_text_4 }}</p>
+                          <?php echo $about->pur_text_4 ?>
                       </div>
 
                   </div>

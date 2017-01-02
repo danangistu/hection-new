@@ -112,7 +112,32 @@ class MenuSeed extends Seeder
           ],['index','create','update','delete']
           );
 
-      //Content Management
+      //Newsletter
+      \webarq::addMenu([
+        'parent_id'     => null,
+        'title'         => 'Newsletter',
+        'controller'    => '#',
+        'slug'          => 'newsletters',
+        'order'         => 2,
+      ],[]);
+          \webarq::addMenu([
+            'parent_id'     => 'newsletters',
+            'title'         => 'Newsletter Email',
+            'controller'    => 'NewsletterController',
+            'slug'          => 'newsletter',
+            'order'         => '1'
+          ],['index','create','update','delete']
+          );
+          \webarq::addMenu([
+            'parent_id'     => 'newsletters',
+            'title'         => 'Broadcast Letter',
+            'controller'    => 'BroadcastController',
+            'slug'          => 'broadcast',
+            'order'         => '2'
+          ],['index','create','delete']
+          );
+
+      //Setting
       \webarq::addMenu([
         'parent_id'     => null,
         'title'         => 'Settings',

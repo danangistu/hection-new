@@ -15,9 +15,9 @@ class LoginController extends Controller
     public function handleAct($title)
     {
         $userId = getUser()->id;
-        
+
         $action = getUser()->username.' '.$title;
-        
+
         injectModel('UserActivity')->create([
             'user_id'   => $userId,
             'action'    => $action,
@@ -81,9 +81,9 @@ class LoginController extends Controller
     	$cek = User::whereEmail($request->email)->count();
 
     	if($cek > 0)
-    	{	
-    		$new_password = str_random("5").'webarq';
-    		
+    	{
+    		$new_password = str_random("5").'hection';
+
     		$hash = \Hash::make($new_password);
 
     		$user = User::whereEmail($request->email)->first();
@@ -101,6 +101,6 @@ class LoginController extends Controller
 
     	}else{
     		return redirect()->back()->withInput()->withInfo('Email Not Found!');
-    	} 
+    	}
     }
 }
