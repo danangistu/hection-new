@@ -11,15 +11,15 @@ use App\Models\Pendamping;
 use Table;
 use File;
 
-class SpeechController extends WebarqController
+class NewscastController extends WebarqController
 {
   public function __construct(Peserta $model, Pendamping $trans)
   {
     parent::__construct();
     $this->model = $model;
     $this->trans = $trans;
-    $this->type  = 'speech';
-    $this->view  = 'backend.speech.';
+    $this->type  = 'newscast';
+    $this->view  = 'backend.newscast.';
   }
   public function getData()
   {
