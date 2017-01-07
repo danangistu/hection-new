@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use File;
+use Excel;
 class WebarqController extends Controller
 {
 	public function __construct()
@@ -170,5 +171,27 @@ class WebarqController extends Controller
 	      $inputs['file'] = $file;
 	    }
 			return $inputs['file'];
+		}
+
+		public function export_data($model,$filename){
+			try{
+	     Excel::create($filename, function($excel) use($model) {
+	        $excel->sheet('Sheet 1', function($sheet) use($model) {
+	          $sheet->fromArray($model);
+	        });
+	     })->export('xlsx');
+	      return redirect(urlBackendAction('index'))->with('success', 'Data has been exported');
+	    }catch(\Exception $e){
+	      return redirect(urlBackendAction('index'))->with('info', $e->getMessage());
+	    }
+		}
+
+		public function cek_status($status,$id){
+			if ($status == 'y')
+        $label = "<a href='".urlBackendAction('verify')."/$id' class='btn btn-xs btn-success btn-block'><span class='glyphicon glyphicon-check'></span> Verified</a>";
+      else
+        $label = "<a href='".urlBackendAction('verify')."/$id' class='btn btn-xs btn-info btn-block'><span class='glyphicon glyphicon-remove'></span> Not Verified</a>";
+
+			return $label;
 		}
 }

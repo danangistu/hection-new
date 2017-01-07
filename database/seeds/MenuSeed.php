@@ -148,17 +148,48 @@ class MenuSeed extends Seeder
           \webarq::addMenu([
             'parent_id'     => 'register',
             'title'         => 'Peserta',
-            'controller'    => 'PesertaController',
+            'controller'    => '#',
             'slug'          => 'peserta',
-            'order'         => '1'
-          ],['index','create','update','view','delete']
-          );
+            'order'         => '1',
+          ],[]);
+              \webarq::addMenu([
+                'parent_id'     => 'peserta',
+                'title'         => 'Speech',
+                'controller'    => 'SpeechController',
+                'slug'          => 'speech',
+                'order'         => '1'
+              ],['index','create','update','view','delete']
+              );
+              \webarq::addMenu([
+                'parent_id'     => 'peserta',
+                'title'         => 'News Casting',
+                'controller'    => 'NewscastController',
+                'slug'          => 'newscast',
+                'order'         => '2'
+              ],['index','create','update','view','delete']
+              );
+              \webarq::addMenu([
+                'parent_id'     => 'peserta',
+                'title'         => 'Story Telling',
+                'controller'    => 'StoryController',
+                'slug'          => 'story',
+                'order'         => '3'
+              ],['index','create','update','view','delete']
+              );
+              \webarq::addMenu([
+                'parent_id'     => 'peserta',
+                'title'         => 'Debate',
+                'controller'    => 'DebateController',
+                'slug'          => 'debate',
+                'order'         => '4'
+              ],['index','create','update','view','delete']
+              );
           \webarq::addMenu([
             'parent_id'     => 'register',
             'title'         => 'Pendamping',
             'controller'    => 'PendampingController',
             'slug'          => 'pendamping',
-            'order'         => '2'
+            'order'         => '2',
           ],['index','create','update','view','delete']
           );
 

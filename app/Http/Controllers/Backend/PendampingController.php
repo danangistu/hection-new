@@ -8,7 +8,6 @@ use App\Http\Requests;
 use App\Http\Controllers\Backend\WebarqController;
 use App\Models\Pendamping;
 use Table;
-use Excel;
 
 class PendampingController extends WebarqController
 {
@@ -94,18 +93,10 @@ class PendampingController extends WebarqController
       'model'=>$this->model->findOrFail($id),
     ]);
   }
+  
   public function getExport(){
-    try{
-     $models = $this->model->select('id','name','gender','nip','hp','birthplace','birthdate','jabatan','uk','alamat_uk','alamat_rumah','created_at')->get();
-     Excel::create('Data-Pendamping-Hection-2017', function($excel) use($models) {
-        $excel->sheet('Sheet 1', function($sheet) use($models) {
-          $sheet->fromArray($models);
-        });
-     })->export('xlsx');
-      return redirect(urlBackendAction('index'))->with('success', 'Data has been exported');
-    }catch(\Exception $e){
-      echo $e->getMessage();
-      return redirect(urlBackendAction('index'))->with('info', $e->getMessage());
-    }
+    $model = $this->model->select('id','name','gender','nip','hp','birthplace','birthdate','jabatan','uk','alamat_uk','alamat_rumah','created_at')->get();
+    $filename = 'Data-Pendamping-Hection-2017';
+    $this->export_data($model,$filename);
   }
 }

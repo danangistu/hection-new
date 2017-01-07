@@ -23,7 +23,7 @@
                       <tr><td>Jabatan</td><td>{{ $model->jabatan }}</td><tr>
                       <tr><td>Unit Kerja</td><td>{{ $model->uk }}</td><tr>
                       <tr><td>Alamat Unit Kerja</td><td>{!! $model->alamat_uk !!}</td><tr>
-                      <tr><td>Alamat Rumah/td><td>{!! $model->alamat_rumah !!}</td><tr>
+                      <tr><td>Alamat Rumah</td><td>{!! $model->alamat_rumah !!}</td><tr>
                     </table>
 
                 </div>

@@ -12,6 +12,7 @@
 <link type="text/css" href="{{ asset(null) }}backend/css/tabular-css.css" rel="stylesheet" media="screen,projection"/>
 <link type="text/css" href="{{ asset(null) }}backend/tab/style.css" rel="stylesheet" media="screen,projection"/>
 <link type="text/css" href="{{ asset(null) }}backend/css/dropdown.css" rel="stylesheet" media="screen,projection"/>
+<link type="text/css" href="{{ asset(null) }}backend/css/select2.css" rel="stylesheet" media="screen,projection"/>
 <link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -33,6 +34,7 @@
 <script type="text/javascript" src="{{ asset(null) }}backend/elfinder/js/elfinder.min.js"></script>
 <script src="{{ asset(null) }}backend/ckeditor/ckeditor.js"></script>
 <script src="{{ asset(null) }}backend/js/dropdown.js"></script>
+<script src="{{ asset(null) }}backend/js/select2.js"></script>
 <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
 
 <title>Hection Admin - {{ webarq::titleActionForm() }}</title>
