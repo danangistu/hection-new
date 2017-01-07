@@ -161,7 +161,7 @@
                                           <div class="row">
 
                                               <div class="col-lg-7 col-md-7 col-sm-10">
-                                                  <p>{{ $program->description }}</p>
+                                                  <?php echo $program->description ?>
 
                                                   <p><i class="fa fa-lg fa-clock-o"></i> <span class="small">{{ $program->duration }}</span></p>
                                                   <p><i class="fa fa-lg fa-map-marker"></i> <span class="small">{{ $program->place }}</span></p>

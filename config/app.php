@@ -149,6 +149,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Proengsoft\JsValidation\JsValidationServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -214,6 +215,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Chart' => Oblagio\Highcharts\Facade::class,
         'JsValidator' => Proengsoft\JsValidation\Facades\JsValidatorFacade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

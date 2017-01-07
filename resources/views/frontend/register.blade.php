@@ -40,7 +40,7 @@
 										<div class="control-group">
                         <div class="controls ">
                             <label for="phone">RE-PASSWORD</label><br>
-                            <input type="password" name="password" id="password" required data-validation-required-message="Please enter your password" />
+                            <input type="password" name="re-password" id="re-password" required data-validation-required-message="Please enter your password" />
                         </div>
                     </div>
 

@@ -7,7 +7,7 @@ class Webarq
 		$this->backendUrl = config('webarq.backendUrl');
 		$this->backendName = config('webarq.backendName');
 	}
-	
+
 	public function hello()
 	{
 		return 'WEBARQ';
@@ -23,18 +23,18 @@ class Webarq
 		if($this->right('update') == 'true')
 		{
 			$url = urlBackendAction('update/'.$params);
-			
-			return '<a href = "'.$url.'" class = "btn btn-info btn-sm"><span class="glyphicon glyphicon-edit"></span></a>';	
+
+			return '<a href = "'.$url.'" class = "btn btn-info btn-sm"><span class="glyphicon glyphicon-edit"></span></a>';
 		}
 	}
 
 	public function buttonDelete($params)
-	{	
+	{
 		if($this->right('delete') == 'true')
 		{
 			$url = urlBackendAction('delete/'.$params);
-			
-			return '<a href = "'.$url.'" class = "btn btn-danger btn-sm" onclick = "return confirm(\'Are You sure want to delete this data?\')"><span class="glyphicon glyphicon-trash"></span></a>';	
+
+			return '<a href = "'.$url.'" class = "btn btn-danger btn-sm" onclick = "return confirm(\'Are You sure want to delete this data?\')"><span class="glyphicon glyphicon-trash"></span></a>';
 		}
 	}
 
@@ -43,8 +43,8 @@ class Webarq
 		if($this->right('view') == 'true')
 		{
 			$url = urlBackendAction('view/'.$params);
-			
-			return '<a href = "'.$url.'" class = "btn btn-warning btn-sm"><span class="glyphicon glyphicon-search"></span></a>';	
+
+			return '<a href = "'.$url.'" class = "btn btn-warning btn-sm"><span class="glyphicon glyphicon-search"></span></a>';
 		}
 	}
 
@@ -57,6 +57,12 @@ class Webarq
 		}
 	}
 
+	public function buttonExport($params="")
+	{
+			$url = urlBackendAction('export/'.$params);
+			return '<a href = "'.$url.'" class = "btn btn-warning btn-sm"><span class="glyphicon glyphicon-export"></span> Export Data</a>';
+	}
+
 	public function buttonPublish($params,$status = true)
 	{
 		if($this->right('publish') == 'true')
@@ -64,7 +70,7 @@ class Webarq
 			$url = urlBackendAction('publish/'.$params);
 			$active =  '<a onclick = "return confirm(\'are you sure want to un publish this data ?\')" href = "'.$url.'" class = "btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-open"></span></a>';
 			$notActive =  '<a onclick = "return confirm(\'are you sure want to  publish this data ?\')" href = "'.$url.'" class = "btn btn-default btn-sm"><span class="glyphicon glyphicon-eye-close"></span></a>';
-			
+
 			if($status == true)
 			{
 				return $active;
@@ -84,22 +90,22 @@ class Webarq
 		{
 			if($button == 'update')
 			{
-			
+
 				$str .= $this->buttonUpdate($id).' ';
-			
+
 			}elseif($button == 'view'){
-				
+
 				$str .= $this->buttonView($id).' ';
-			
+
 			}elseif($button == 'delete'){
-				
+
 				$str .= $this->buttonDelete($id).' ';
 
 			}elseif($button == 'publish'){
-				
+
 
 				$str .= $this->buttonPublish($id,$status).' ';
-			
+
 			}
 		}
 
@@ -111,7 +117,7 @@ class Webarq
 		$permalink = request()->segment(2);
 
 		$model = injectModel('Menu')->whereSlug($permalink)->first();
-		
+
 		return $model;
 	}
 
@@ -132,11 +138,11 @@ class Webarq
 		}else{
 			return injectModel('Action');
 		}
-			
+
 	}
 
 	public function titleActionForm()
-	{	
+	{
 		$actions = $this->getAction();
 
 		$title =  $actions->title.' '.$this->getMenu()->title;
@@ -177,18 +183,18 @@ class Webarq
 			}else{
 				return 'true';
 			}
-				
+
 		}
-		
+
 	}
 
 	public function addMenu($data = [],$actions=[])
-	{	
+	{
 		\DB::beginTransaction();
 		try
 		{
 			$model = injectModel('Menu');
-			
+
 			$cek = $model->whereSlug($data['slug'])->first();
 
 			if($data['parent_id'] != null)
@@ -202,7 +208,7 @@ class Webarq
 				$save = $model->create($data);
 
 				$action = injectModel('Action');
-				
+
 				$menuAction = injectModel('MenuAction');
 
 				$right = injectModel('Right');
@@ -228,7 +234,7 @@ class Webarq
 			}
 
 			\DB::commit();
-		
+
 		}catch(\Exception $e){
 			\DB::rollback();
 			echo "menu gagal disimpan : ".$e->getMessage();
@@ -239,7 +245,7 @@ class Webarq
 	public function updateMenu($data = [],$actions=[])
 	{
 		$model = injectModel('Menu');
-		
+
 		if($data['parent_id'] != null)
 		{
 			$parent = $model->whereSlug($data['parent_id'])->first();
@@ -247,7 +253,7 @@ class Webarq
 		}
 
 		//$parent = $model->whereSlug($data['parent_id'])->first();
-		
+
 		$update = $model->whereSlug($data['slug'])->first();
 
 		//$data['parent_id'] = $parent->id;
@@ -255,7 +261,7 @@ class Webarq
 		$update->update($data);
 
 		$action = injectModel('Action');
-			
+
 		$menuAction = injectModel('MenuAction');
 
 		$right = injectModel('Right');
@@ -272,7 +278,7 @@ class Webarq
 					'menu_id'		=> $update->id,
 					'action_id'		=> $cekAction->id,
 				]);
-				
+
 				$right->create([
 					'role_id'			=> 1,
 					'menu_action_id'	=> $menuActionSave->id,

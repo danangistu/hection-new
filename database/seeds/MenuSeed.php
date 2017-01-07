@@ -137,6 +137,31 @@ class MenuSeed extends Seeder
           ],['index','create','delete']
           );
 
+      //Registration
+      \webarq::addMenu([
+        'parent_id'     => null,
+        'title'         => 'Registration',
+        'controller'    => '#',
+        'slug'          => 'register',
+        'order'         => 3,
+      ],[]);
+          \webarq::addMenu([
+            'parent_id'     => 'register',
+            'title'         => 'Peserta',
+            'controller'    => 'PesertaController',
+            'slug'          => 'peserta',
+            'order'         => '1'
+          ],['index','create','update','view','delete']
+          );
+          \webarq::addMenu([
+            'parent_id'     => 'register',
+            'title'         => 'Pendamping',
+            'controller'    => 'PendampingController',
+            'slug'          => 'pendamping',
+            'order'         => '2'
+          ],['index','create','update','view','delete']
+          );
+
       //Setting
       \webarq::addMenu([
         'parent_id'     => null,
