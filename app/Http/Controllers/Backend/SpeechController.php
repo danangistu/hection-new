@@ -23,7 +23,7 @@ class SpeechController extends WebarqController
   }
   public function getData()
   {
-    $model = $this->model->select('id','name','email','hp','school','photo','status');
+    $model = $this->model->select('id','name','email','hp','school','photo','status')->where('category','=',$this->type)->orderBy('team','desc');
 
     $table = Table::of($model)
     ->addColumn('status', function($model){
@@ -150,7 +150,7 @@ class SpeechController extends WebarqController
   }
 
   public function getExport(){
-    $model = $this->model->select('pesertas.id','pendampings.name','category','pesertas.name','email','pesertas.hp','pesertas.gender','address','postal_code','pesertas.birthplace','pesertas.birthdate','school','jurusan','sch_address')
+    $model = $this->model->select('pesertas.id','pendampings.name AS pendamping','category','pesertas.name','email','pesertas.hp','pesertas.gender','address','postal_code','pesertas.birthplace','pesertas.birthdate','school','jurusan','sch_address')
       ->join('pendampings','pendampings.id','=','pesertas.pendamping_id')
       ->where('category','=',$this->type)
       ->get();

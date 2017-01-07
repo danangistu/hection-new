@@ -11,19 +11,21 @@ use App\Models\Pendamping;
 use Table;
 use File;
 
-class StoryController extends WebarqController
+class DebateController extends WebarqController
 {
   public function __construct(Peserta $model, Pendamping $trans)
   {
     parent::__construct();
     $this->model = $model;
     $this->trans = $trans;
-    $this->type  = 'storytelling';
-    $this->view  = 'backend.story.';
+    $this->type  = 'debate';
+    $this->view  = 'backend.debate.';
   }
   public function getData()
   {
-    $model = $this->model->select('id','name','email','hp','school','photo','status')->where('category','=',$this->type)->orderBy('team','desc');
+    $model = $this->model->select('id','team','name','email','hp','school','photo','status')
+      ->where('category','=',$this->type)
+      ->orderBy('team','desc');
 
     $table = Table::of($model)
     ->addColumn('status', function($model){
@@ -48,12 +50,10 @@ class StoryController extends WebarqController
 
   public function getCreate()
   {
-    $team = $this->model->select('team')->max('team')+1;
     return view($this->view.'_form',[
       'model'=>$this->model,
       'trans'=>$this->trans->all(),
       'category'=>$this->type,
-      'team'=>$team,
     ]);
   }
 
@@ -73,13 +73,10 @@ class StoryController extends WebarqController
 
   public function getUpdate($id)
   {
-    $team = $this->model->select('team')->findOrFail($id);
-    $team = $team->team;
     return view($this->view.'_form',[
       'model'=>$this->model->findOrFail($id),
       'trans'=>$this->trans->all(),
       'category'=>$this->type,
-      'team'=>$team,
     ]);
   }
 
@@ -130,10 +127,13 @@ class StoryController extends WebarqController
   {
     try{
       $inputs = $request->all();
-      $model = $this->model->findOrFail($id);
-      return $this->update($model,$inputs);
+      $model  = $this->model->findOrFail($id);
+      $this->model->where([
+          ['category','=',$this->type],
+          ['team','=',$model->team],
+        ])->update(['status' => $inputs['status']]);
+      return redirect(urlBackendAction('index'))->with('success', 'Data has been updated');
     }catch(\Exception $e){
-      echo $e->getMessage();
       return redirect(urlBackendAction('index'))->with('info', $e->getMessage());
     }
   }
@@ -150,7 +150,7 @@ class StoryController extends WebarqController
   }
 
   public function getExport(){
-    $model = $this->model->select('pesertas.id','pendampings.name AS pendamping','category','pesertas.name','email','pesertas.hp','pesertas.gender','address','postal_code','pesertas.birthplace','pesertas.birthdate','school','jurusan','sch_address')
+    $model = $this->model->select('pesertas.id','team','pendampings.name AS pendamping','category','pesertas.name','email','pesertas.hp','pesertas.gender','address','postal_code','pesertas.birthplace','pesertas.birthdate','school','jurusan','sch_address')
       ->join('pendampings','pendampings.id','=','pesertas.pendamping_id')
       ->where('category','=',$this->type)
       ->get();
