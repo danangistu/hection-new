@@ -150,6 +150,8 @@ return [
         Proengsoft\JsValidation\JsValidationServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Mews\Captcha\CaptchaServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -216,6 +218,7 @@ return [
         'Chart' => Oblagio\Highcharts\Facade::class,
         'JsValidator' => Proengsoft\JsValidation\Facades\JsValidatorFacade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
     ],
 
 ];

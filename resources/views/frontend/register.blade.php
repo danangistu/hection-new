@@ -7,57 +7,20 @@
                 <div class="col-lg-12">
                 	<h2 class="uppercase">register</h2>
                 </div>
-                <!-- REGISTER FORM -->
-                <div class="register-form col-lg-12">
-                    <div class="control-group">
-                        <div class="controls">
-                            <label for="name">NAME</label><br>
-                            <input type="text" name="name" id="name" required data-validation-required-message="Please enter your name" />
+                     <div class="control-group">
+                        <div class="controls ">
+                            <label for="type">SELECT CONTEST CATEGORY</label><br>
+                            <select name="category" id="category">
+                                <option value="" disabled selected="selected">Select type</option>
+                                <option value="debate">Debate</option>
+                                <option value="newscast">News Casting</option>
+																<option value="storytelling">Story Telling</option>
+                                <option value="speech">Speech</option>
+                            </select>
                         </div>
                     </div>
-
-                    <div class="control-group">
-                        <div class="controls ">
-                            <label for="email">EMAIL</label><br>
-                            <input type="email" name="email" id="email"  required data-validation-required-message="Please enter your email" />
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <div class="controls ">
-                            <label for="phone">PHONE</label><br>
-                            <input type="text" name="phone" id="phone" required data-validation-required-message="Please enter your phone" />
-                        </div>
-                    </div>
-
-										<div class="control-group">
-                        <div class="controls ">
-                            <label for="phone">PASSWORD</label><br>
-                            <input type="password" name="password" id="password" required data-validation-required-message="Please enter your password" />
-                        </div>
-                    </div>
-
-										<div class="control-group">
-                        <div class="controls ">
-                            <label for="phone">RE-PASSWORD</label><br>
-                            <input type="password" name="re-password" id="re-password" required data-validation-required-message="Please enter your password" />
-                        </div>
-                    </div>
-
-                     <!-- <div class="control-group">
-                        <div class="controls ">
-                            <label for="type">CONTEST</label><br>
-                            <select name="type" id="type">
-                                    <option value="" disabled selected="selected">Select type</option>
-                                    <option value="Early Bird">Early Bird</option>
-                                    <option value="Standart">Standart</option>
-                                    <option value="Full Price">Full Price</option>
-                                </select>
-                        </div>
-                    </div> -->
-
                     <div class="col-lg-12 text-right">
-                        <button class="button button-big button-dark" onclick="contact_send();">SEND</button>
+                      <button class="button button-big button-dark" onclick="form_send()">SEND</button>
                     </div>
                 </div>
             </div>

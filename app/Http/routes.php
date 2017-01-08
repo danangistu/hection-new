@@ -17,8 +17,16 @@
 Route::resource('/','Frontend\HomeController');
 Route::get('contest/{id}','Frontend\ContestController@viewContest');
 Route::get('winner/{id}','Frontend\WinnerController@viewWinner');
-Route::resource('register','Frontend\RegisterController');
+Route::get('register','Frontend\RegisterController@index');
+Route::get('register/{category}','Frontend\RegisterController@getForm');
+Route::post('register/{category}','Frontend\RegisterController@postForm');
 Route::resource('newsletter','Frontend\NewsLetterController');
+Route::get('success','Frontend\SuccessController@index');
+Route::get('uploaded','Frontend\SuccessController@uploaded');
+Route::get('fail','Frontend\FailController@index');
+Route::get('verification/{code}','Frontend\VerificationController@index');
+Route::post('verification/{code}','Frontend\VerificationController@submit');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes

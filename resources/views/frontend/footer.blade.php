@@ -5,7 +5,7 @@
 
             <div class="col-lg-6 col-md-6 col-sm-6">
               <h4 class="uppercase">{{ $about->title }}</h4>
-                <p class="small"><?php echo substr($about->about,0,200) ?></p>
+                <p class="small">For more information, contact us via email : <br><a href="mailto:ukmpeccpolines@gmail.com">ukmpeccpolines@gmail.com</a><br><a href="mailto:info@hection.com">info@hection.com</a></p>
                 <ul class="list-unstyled list-inline uppercase">
                   @if(!empty($config->facebook))
                     <li><a href="{{ $config->facebook }}"><i class="fa fa-lg fa-facebook"></i></a></li>
@@ -50,11 +50,7 @@
 
             <div class="col-lg-12">
                 <ul class="list-unstyled list-inline pull-right uppercase">
-                    <li><a href="#">Terms</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Press Kit</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Copyright by UKM PECC | Politeknik Negeri Semarang</a></li>
                 </ul>
             </div>
 

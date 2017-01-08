@@ -101,7 +101,7 @@ jQuery(document).ready(function($) {
 	//COUNTDOWN TIMER
 	var newYear = new Date();
     newYear = new Date(newYear.getFullYear() + 1, 1 - 1, 1);
-    $('#countdown').countdown({until: new Date(2017, 3-1, 4)}); // enter event day
+    $('#countdown').countdown({until: new Date(2017, 2-1, 26)}); // enter event day
 
     $('#removeCountdown').toggle(
         function() {
@@ -300,41 +300,6 @@ $(window).load(function(){
 
 });
 
-// REGISTER FORM FUNCTION
-var contact_send = function(){
-
-	'use strict';
-
-	var name       = $("#name").val();
-	var email      = $("#email").val();
-  var phone      = $("#phone").val();
-  var password   = $("#password").val();
-	var repassword = $("#re-password").val();
-
-  if ( name=="" ){ alert("name area is empty!"); $("#name").focus(); }
-	else if ( email=="" ){ alert("email address area is empty!"); $("#email").focus(); }
-	else if ( phone=="" ){ alert("phone number area is empty!"); $("#phone").focus(); }
-  else if ( password=="" ){ alert("password area is empty!"); $("#password").focus(); }
-	else if ( repassword=="" ){ alert("re-password area is empty!"); $("#re-password").focus(); }
-	else {
-    if ( password !== repassword ){ alert("password didn't match!"); $("#re-password").focus(); }
-		$.post("register", { name:name, email:email, phone:phone, password:password }, function( result ){
-			if ( result=="SUCCESS" ){
-				alert("You are successfuly registered, please check your email to confirm.");
-				setTimeout(function(){
-					$("#name").val("");
-					$("#email").val("");
-					$("#phone").val("");
-          $("#password").val("");
-					$("#re-password").val("");
-				}, 3000);
-			} else {
-				alert("Your contact form isn't sent. Please check fields and try again.");
-			}
-		});
-	}
-
-};
 
 	/* NEWSLETTER FORM FUNCTION */
 	var newsletter_send = function(){
@@ -367,3 +332,17 @@ var contact_send = function(){
 		}
 
 	};
+
+  // REGISTER FORM FUNCTION
+  var form_send = function(){
+
+  	'use strict';
+
+  	var category  = $("#category").val();
+
+  	if ( category=="" ){ alert("please select category first!"); $("#category").focus(); }
+  	else {
+  	   window.location.replace('register/'+category);
+  	}
+
+  };

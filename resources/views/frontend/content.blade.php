@@ -7,10 +7,11 @@
   <section id="highlight">
     <div class="container-fluid">
         <div class="row">
-
             <div id="left" class="left col-lg-9 col-md-8 text-right">
-                <h2>Register Now</h2>
-                  <p>time left before big days</p>
+                <h2>
+                  Register Now
+                </h2>
+                  <p>time left before registration closed </p>
               </div>
 
               <div id="right" class="col-lg-3 col-md-4 text-left">
@@ -25,9 +26,22 @@
   <section id="info">
       <div class="container">
           <div class="row">
-
               <div class="col-lg-12 text-center">
                   <h1>{{ $about->title }}</h1>
+                  <h1 style="margin-top:-10px;">
+                    <a id="social-buttons" href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}"
+                      target="_blank">
+                      <i class="fa fa-facebook-official"></i>
+                    </a>
+                    <a id="social-buttons" href="https://twitter.com/intent/tweet?url={{ url()->current() }}"
+                      target="_blank">
+                      <i class="fa fa-twitter-square"></i>
+                    </a>
+                    <a id="social-buttons" href="https://plus.google.com/share?url={{ url()->current() }}"
+                      target="_blank">
+                      <i class="fa fa-google-plus-square"></i>
+                    </a>
+                  </h1>
                   <p class="lead"><?php echo $about->about ?></p>
               </div>
 
