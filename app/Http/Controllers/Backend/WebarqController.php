@@ -18,7 +18,6 @@ class WebarqController extends Controller
     public function handleUpload($request,$model,$fieldName,$resize=[])
     {
        $image = $request->file($fieldName);
-
         if(!empty($image))
         {
              if(!empty($model->$fieldName))
@@ -45,6 +44,33 @@ class WebarqController extends Controller
         }
     }
 
+		public function handleUpload2($image,$model,$fieldName,$resize=[])
+    {
+        if(!empty($image))
+        {
+             if(!empty($model->$fieldName))
+                {
+                    @unlink(public_path('contents/'.$model->$fieldName));
+                }
+
+            $imageName = "hection-2017-".randomImage().'.'.$image->getClientOriginalExtension();
+
+            $image = \Image::make($image);
+
+            if(!empty($resize))
+            {
+            	$image = $image->resize($resize[0],$resize[1]);
+            }
+
+            $image = $image->save(public_path('contents/'.$imageName));
+
+            return $imageName;
+
+        }else{
+
+            return $model->$fieldName;
+        }
+    }
 
     public function save($model,$inputs)
     {

@@ -27,7 +27,8 @@
 
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
-                    	<form role="form" action="{{ url()->current() }}" method="post" class="f1">
+                    	<form role="form" action="{{ url()->current() }}" method="post" class="f1" enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                     		<h3>Verifikasi Pembayaran Pendaftaran Hection 2017</h3>
                         <p>Nama peserta : {{ $model->name }}</p>
                     		<p>Email : {{ $model->email }}</p>

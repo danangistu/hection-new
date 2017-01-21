@@ -24,6 +24,7 @@ class RegisterRequest extends Request
     public function rules()
     {
         return [
+          'g-recaptcha-response' => 'required|captcha'
         ];
     }
 }

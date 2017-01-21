@@ -14,18 +14,6 @@
 // Route::get('/', function () {
 // 	return view('welcome');
 // });
-Route::resource('/','Frontend\HomeController');
-Route::get('contest/{id}','Frontend\ContestController@viewContest');
-Route::get('winner/{id}','Frontend\WinnerController@viewWinner');
-Route::get('register','Frontend\RegisterController@index');
-Route::get('register/{category}','Frontend\RegisterController@getForm');
-Route::post('register/{category}','Frontend\RegisterController@postForm');
-Route::resource('newsletter','Frontend\NewsLetterController');
-Route::get('success','Frontend\SuccessController@index');
-Route::get('uploaded','Frontend\SuccessController@uploaded');
-Route::get('fail','Frontend\FailController@index');
-Route::get('verification/{code}','Frontend\VerificationController@index');
-Route::post('verification/{code}','Frontend\VerificationController@submit');
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +27,18 @@ Route::post('verification/{code}','Frontend\VerificationController@submit');
 */
 
 Route::group(['middleware' => ['web']], function () {
-
+	Route::resource('/','Frontend\HomeController');
+	Route::get('contest/{id}','Frontend\ContestController@viewContest');
+	Route::get('winner/{id}','Frontend\WinnerController@viewWinner');
+	Route::get('register','Frontend\RegisterController@index');
+	Route::get('register/{category}','Frontend\RegisterController@getForm');
+	Route::post('register/{category}','Frontend\RegisterController@postForm');
+	Route::resource('newsletter','Frontend\NewsLetterController');
+	Route::get('success','Frontend\SuccessController@index');
+	Route::get('uploaded','Frontend\SuccessController@uploaded');
+	Route::get('fail','Frontend\FailController@index');
+	Route::get('verification/{code}','Frontend\VerificationController@index');
+	Route::post('verification/{code}','Frontend\VerificationController@submit');
 	Route::controller('login','Backend\LoginController');
 
 	Route::get('admin-cp' , function(){

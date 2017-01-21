@@ -20,7 +20,7 @@
                     <tr><td>No HP</td><td>{{ $model->hp }}</td><tr>
                     <tr><td>Jumlah di bayar</td><td>Rp. 100.000,00</td><tr>
                     @if($model->slip !== '')
-                      <tr><td>Bukti Bayar</td><td><img src="{{ asset('contents/'.$model->slip) }}"></td><tr>
+                      <tr><td>Bukti Bayar</td><td><img src="{{ asset('contents/'.$model->slip) }}" height="500"></td><tr>
                     @else
                       <tr><td>Bukti Bayar</td><td>Belum di upload.</td><tr>
                     @endif
