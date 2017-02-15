@@ -41,8 +41,8 @@
   </div>
 
   <div class="form-group">
-    <label class="sr-only" for="f1-first-name">Tanggal Lahir</label>
-    <input type="text" name="peserta_birthdate" placeholder="Tanggal Lahir" class="f1-first-name form-control" id="peserta_birthdate">
+    <label class="sr-only" for="f1-first-name">Tanggal Lahir (YYYY-MM-DD)</label>
+    <input type="text" name="peserta_birthdate" placeholder="Tanggal Lahir (YYYY-MM-DD)" class="f1-first-name form-control" id="peserta_birthdate">
   </div>
 
   <div class="form-group">

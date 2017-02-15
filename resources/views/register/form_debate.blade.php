@@ -42,7 +42,7 @@
 
   <div class="form-group">
     <label class="sr-only" for="f1-first-name">Tanggal Lahir</label>
-    <input type="text" name="peserta_birthdate" placeholder="Tanggal Lahir" class="f1-first-name form-control" id="peserta_birthdate">
+    <input type="text" name="peserta_birthdate" placeholder="Tanggal Lahir (YYY-MM-DD)" class="f1-first-name form-control" id="peserta_birthdate">
   </div>
 
   <div class="form-group">
@@ -121,7 +121,7 @@
 
     <div class="form-group">
       <label class="sr-only" for="f1-first-name">Tanggal Lahir</label>
-      <input type="text" name="peserta_birthdate2" placeholder="Tanggal Lahir" class="f1-first-name form-control" id="peserta_birthdate">
+      <input type="text" name="peserta_birthdate2" placeholder="Tanggal Lahir (YYY-MM-DD)"  class="f1-first-name form-control" id="peserta_birthdate2">
     </div>
 
     <div class="form-group">
@@ -141,14 +141,14 @@
 
     <div class="form-group">
       <label for="f1-first-name">Upload Photo (Max:2MB)</label><br/>
-      <img id="output" height="200"/>
-      <input type="file" name="photo2" class="f1-first-name form-control" accept="image/*" onchange="loadFile(event)" id="peserta_photo">
+      <img id="output-peserta2" height="200"/>
+      <input type="file" name="photo2" class="f1-first-name form-control" accept="image/*" onchange="loadFile3(event)" id="peserta_photo">
     </div>
 
     <div class="form-group">
       <label for="f1-first-name">Upload ID/KTP/SIM/Kartu Pelajar (Max:2MB)</label><br/>
-      <img id="output2" height="200"/>
-      <input type="file" name="id_card2" class="f1-first-name form-control" accept="image/*" onchange="loadFile2(event)" id="peserta_id_card">
+      <img id="output2-peserta2" height="200"/>
+      <input type="file" name="id_card2" class="f1-first-name form-control" accept="image/*" onchange="loadFile4(event)" id="peserta_id_card">
     </div>
 
     <div class="f1-buttons">
@@ -201,7 +201,7 @@
 
         <div class="form-group">
           <label class="sr-only" for="f1-first-name">Tanggal Lahir</label>
-          <input type="text" name="peserta_birthdate3" placeholder="Tanggal Lahir" class="f1-first-name form-control" id="peserta_birthdate">
+          <input type="text" name="peserta_birthdate3" placeholder="Tanggal Lahir (YYY-MM-DD)" class="f1-first-name form-control" id="peserta_birthdate3">
         </div>
 
         <div class="form-group">
@@ -221,14 +221,14 @@
 
         <div class="form-group">
           <label for="f1-first-name">Upload Photo (Max:2MB)</label><br/>
-          <img id="output" height="200"/>
-          <input type="file" name="photo3" class="f1-first-name form-control" accept="image/*" onchange="loadFile(event)" id="peserta_photo">
+          <img id="output-peserta3" height="200"/>
+          <input type="file" name="photo3" class="f1-first-name form-control" accept="image/*" onchange="loadFile5(event)" id="peserta_photo">
         </div>
 
         <div class="form-group">
           <label for="f1-first-name">Upload ID/KTP/SIM/Kartu Pelajar (Max:2MB)</label><br/>
-          <img id="output2" height="200"/>
-          <input type="file" name="id_card3" class="f1-first-name form-control" accept="image/*" onchange="loadFile2(event)" id="peserta_id_card">
+          <img id="output2-peserta3" height="200"/>
+          <input type="file" name="id_card3" class="f1-first-name form-control" accept="image/*" onchange="loadFile6(event)" id="peserta_id_card">
         </div>
 
         <div class="f1-buttons">

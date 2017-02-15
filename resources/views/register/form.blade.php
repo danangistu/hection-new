@@ -100,22 +100,47 @@
             var output = document.getElementById('output');
             output.src = URL.createObjectURL(event.target.files[0]);
           };
-        </script>
-        <script>
           var loadFile2 = function(event) {
             var output = document.getElementById('output2');
+            output.src = URL.createObjectURL(event.target.files[0]);
+          };
+          var loadFile3 = function(event) {
+            var output = document.getElementById('output-peserta2');
+            output.src = URL.createObjectURL(event.target.files[0]);
+          };
+          var loadFile4 = function(event) {
+            var output = document.getElementById('output2-peserta2');
+            output.src = URL.createObjectURL(event.target.files[0]);
+          };
+          var loadFile5 = function(event) {
+            var output = document.getElementById('output-peserta3');
+            output.src = URL.createObjectURL(event.target.files[0]);
+          };
+          var loadFile6 = function(event) {
+            var output = document.getElementById('output2-peserta3');
             output.src = URL.createObjectURL(event.target.files[0]);
           };
         </script>
         <script>
         $( function() {
           $( "#peserta_birthdate" ).datepicker({ dateFormat: 'yy-mm-dd' });
-        } );
-        </script>
-        <script>
+        });
+        $( function() {
+          $( "#peserta_birthdate2" ).datepicker({ dateFormat: 'yy-mm-dd' });
+        });
+        $( function() {
+          $( "#peserta_birthdate3" ).datepicker({ dateFormat: 'yy-mm-dd' });
+        });
         $( function() {
           $( "#pendamping_birthdate" ).datepicker({ dateFormat: 'yy-mm-dd' });
-        } );
+        });
+
+        $('form').on('submit', function(e) {
+          if(grecaptcha.getResponse() == "") {
+            e.preventDefault();
+            alert("Silakan input captcha terlebih dahulu!");
+          }
+        });
         </script>
         <!--[if lt IE 10]>
             <script src="{{ asset(null) }}frontend/register/js/placeholder.js"></script>

@@ -110,28 +110,28 @@ class RegisterController extends WebarqController
             $m->to($email);
         });
 
-        $model = $this->model;
-        $inputs['photo2'] = $this->handleUpload($request,$model,'photo2',[300,400]);
-        $inputs['id_card2'] = $this->handleUpload($request,$model,'id_card2',[600,400]);
-        $model->pendamping_id = $trans->id;
-        $model->team = $model->team;
-        $model->category = $inputs['category'];
-        $model->name = $inputs['peserta_name2'];
-        $model->email = $inputs['peserta_email2'];
-        $model->hp = $inputs['peserta_hp2'];
-        $model->gender = $inputs['peserta_gender2'];
-        $model->address = $inputs['peserta_address2'];
-        $model->postal_code = $inputs['peserta_postal_code2'];
-        $model->birthplace = $inputs['peserta_birthplace2'];
-        $model->birthdate = $inputs['peserta_birthdate2'];
-        $model->school = $inputs['peserta_school2'];
-        $model->jurusan = $inputs['peserta_jurusan2'];
-        $model->sch_address = $inputs['peserta_sch_address2'];
-        $model->photo = $inputs['photo2'];
-        $model->id_card = $inputs['id_card2'];
-        $model->status = 'n';
-        $model->verification_code = $verification_code;
-        $model->save();
+        $model2 = new Peserta;
+        $inputs['photo2'] = $this->handleUpload($request,$model2,'photo2',[300,400]);
+        $inputs['id_card2'] = $this->handleUpload($request,$model2,'id_card2',[600,400]);
+        $model2->pendamping_id = $trans->id;
+        $model2->team = $model->team;
+        $model2->category = $inputs['category'];
+        $model2->name = $inputs['peserta_name2'];
+        $model2->email = $inputs['peserta_email2'];
+        $model2->hp = $inputs['peserta_hp2'];
+        $model2->gender = $inputs['peserta_gender2'];
+        $model2->address = $inputs['peserta_address2'];
+        $model2->postal_code = $inputs['peserta_postal_code2'];
+        $model2->birthplace = $inputs['peserta_birthplace2'];
+        $model2->birthdate = $inputs['peserta_birthdate2'];
+        $model2->school = $inputs['peserta_school2'];
+        $model2->jurusan = $inputs['peserta_jurusan2'];
+        $model2->sch_address = $inputs['peserta_sch_address2'];
+        $model2->photo = $inputs['photo2'];
+        $model2->id_card = $inputs['id_card2'];
+        $model2->status = 'n';
+        $model2->verification_code = $verification_code;
+        $model2->save();
 
         $email =  $inputs['peserta_email2'];
         Mail::send('register.email',[
@@ -145,28 +145,28 @@ class RegisterController extends WebarqController
             $m->to($email);
         });
 
-        $model = $this->model;
-        $inputs['photo3'] = $this->handleUpload($request,$model,'photo3',[300,400]);
-        $inputs['id_card3'] = $this->handleUpload($request,$model,'id_card3',[600,400]);
-        $model->pendamping_id = $trans->id;
-        $model->team = $model->team;
-        $model->category = $inputs['category'];
-        $model->name = $inputs['peserta_name3'];
-        $model->email = $inputs['peserta_email3'];
-        $model->hp = $inputs['peserta_hp3'];
-        $model->gender = $inputs['peserta_gender3'];
-        $model->address = $inputs['peserta_address3'];
-        $model->postal_code = $inputs['peserta_postal_code3'];
-        $model->birthplace = $inputs['peserta_birthplace3'];
-        $model->birthdate = $inputs['peserta_birthdate3'];
-        $model->school = $inputs['peserta_school3'];
-        $model->jurusan = $inputs['peserta_jurusan3'];
-        $model->sch_address = $inputs['peserta_sch_address3'];
-        $model->photo = $inputs['photo3'];
-        $model->id_card = $inputs['id_card3'];
-        $model->status = 'n';
-        $model->verification_code = $verification_code;
-        $model->save();
+        $model3 = new Peserta;
+        $inputs['photo3'] = $this->handleUpload($request,$model3,'photo3',[300,400]);
+        $inputs['id_card3'] = $this->handleUpload($request,$model3,'id_card3',[600,400]);
+        $model3->pendamping_id = $trans->id;
+        $model3->team = $model->team;
+        $model3->category = $inputs['category'];
+        $model3->name = $inputs['peserta_name3'];
+        $model3->email = $inputs['peserta_email3'];
+        $model3->hp = $inputs['peserta_hp3'];
+        $model3->gender = $inputs['peserta_gender3'];
+        $model3->address = $inputs['peserta_address3'];
+        $model3->postal_code = $inputs['peserta_postal_code3'];
+        $model3->birthplace = $inputs['peserta_birthplace3'];
+        $model3->birthdate = $inputs['peserta_birthdate3'];
+        $model3->school = $inputs['peserta_school3'];
+        $model3->jurusan = $inputs['peserta_jurusan3'];
+        $model3->sch_address = $inputs['peserta_sch_address3'];
+        $model3->photo = $inputs['photo3'];
+        $model3->id_card = $inputs['id_card3'];
+        $model3->status = 'n';
+        $model3->verification_code = $verification_code;
+        $model3->save();
 
         $email =  $inputs['peserta_email3'];
         Mail::send('register.email',[
@@ -180,8 +180,6 @@ class RegisterController extends WebarqController
             $m->to($email);
         });
       }
-
-
       DB::commit();
 
       return redirect('success');
