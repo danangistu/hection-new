@@ -59,7 +59,7 @@
                     { data: 'gender', name: 'gender' },
                     { data: 'nip', name: 'nip' },
                     { data: 'hp', name: 'hp' },
-                    { data: 'uk', name: 'uk' },
+                    { data: 'school', name: 'school' },
                     { data: 'jabatan', name: 'jabatan' },
                     { data: 'action', name: 'action' , searchable: false},
 
